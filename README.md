@@ -1,2 +1,2 @@
 # TechnoFactory
-Sistema de ventas de productos 
+Sistema de ventas de productos Tecnológicos

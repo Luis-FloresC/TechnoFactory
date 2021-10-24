@@ -50,5 +50,6 @@
             <div class="footer-copyright full-reset all-tittles">© <?php $Year = date("Y"); echo $Year; ?> Grupo 6 - Portales web 2</div>
         </footer>
     </div>
+
 </body>
 </html>

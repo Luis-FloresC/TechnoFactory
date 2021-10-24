@@ -1,4 +1,28 @@
+<?php 
 
+$txtNombre =  (isset($_SESSION['nombre']))?$_SESSION['nombre']:"";
+$txtApellido =  (isset($_SESSION['apellido']))?$_SESSION['apellido']:"";
+$login = (isset($_SESSION['user']))?$_SESSION['user']:"";
+$login = (isset($_SESSION['id']))?$_SESSION['id']:"";
+
+$NombreUsuario = "$txtNombre $txtApellido";
+
+include('../Conexion/connection.php');
+
+$con = conectar();
+
+function TotalRows($tabla)
+{
+   global $con;
+   $query = "select coalesce(count(*),0)'Total' from $tabla;";
+   $count = current($con->query($query)->fetch());
+   return $count;
+}
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -67,7 +91,7 @@
                             
                            
                             <li>
-                                <a href="#"><i class="zmdi zmdi-view-list zmdi-hc-fw"></i>&nbsp;&nbsp; Lista De Productos<span class="label label-danger pull-right label-mhover"><?php  echo "0"; ?></span></a>
+                                <a href="#"><i class="zmdi zmdi-view-list zmdi-hc-fw"></i>&nbsp;&nbsp; Lista De Productos<span class="label label-danger pull-right label-mhover"><?php  echo TotalRows("Productos"); ?></span></a>
                             </li>
                         </ul>
                     </li>
@@ -93,9 +117,9 @@
                    <img src="../Public/assets/img/user01.png" alt="user-picture" class="img-responsive img-circle center-box">
                 </figure>
                 <li style="color:#fff; cursor:default;">
-                    <span class="all-tittles"><?php echo "Luis Flores"; ?></span>
+                    <span class="all-tittles"><?php print $NombreUsuario; ?></span>
                 </li>
-                <li  class="tooltips-general exit-system-button" data-href="index.html" data-placement="bottom" title="Salir del sistema">
+                <li  class="tooltips-general exit-system-button" data-href="../index.php" data-placement="bottom" title="Salir del sistema">
                     <i class="zmdi zmdi-power"></i>
                 </li>
                 <li  class="tooltips-general search-book-button" data-href="searchbook.html" data-placement="bottom" title="Buscar Cliente">

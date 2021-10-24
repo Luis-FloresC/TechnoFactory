@@ -1,5 +1,8 @@
 <?php 
 include('../template/header.php');
+
+date_default_timezone_get('America/Honduras_city');
+$fecha_actual=date("Y-m-d");
 ?>
 
 <div class="container">
@@ -32,6 +35,12 @@ include('../template/header.php');
                     </div>
                 </div>
                 <div class="row form-group">
+                    <label for="" class="col-form-label col-md-2">Fecha de Nacimiento</label>
+                    <div class="col-md-8">
+                        <input type="date" name="fecha" getdate="" class="form-control">
+                    </div>
+                </div>
+                <div class="row form-group">
                     <label for="" class="col-form-lable col-md-4">Genero</label>
                     <div class="col-md-8 form-check form-check-inline">
                         <label class="form-check-label">
@@ -46,26 +55,188 @@ include('../template/header.php');
                         </label>
                     </div>
                 </div>
-
-
-
         </div>
     </div>
 </div>
 
 
-
-<br>
-<label for="" class="col-form-lable col-md-4">fecha de nacimiento</label>
-<label for="correo" class="form-label">fecha de registro:</label>
-
-
-
-
-
-
-
-
-
-
 <?php include('../template/footer.php'); ?>
+
+
+
+
+<?php /*
+<h1>LISTADO DE EMPLEADOS</h1>
+<table width="70%">
+
+    <tr>
+        <td>nombre</td>
+        <td>apellido</td>
+        <td>direccion</td>
+        <td>Apellidos</td>
+        <td>fecha</td>
+        <td>genero</td>
+    </tr>
+    <?php 
+        while($datos=$resultado->fetch_array()){
+        ?>
+    <tr>
+        <td><?php echo $datos["idMedico"]?></td>
+        <td><?php echo $datos["medIdentificacion"]?></td>
+        <td><?php echo $datos["medNombres"]?></td>
+        <td><?php echo $datos["medApellidos"]?></td>
+        <td><?php echo $datos["medEspecialidad"]?></td>
+        <td><?php echo $datos["medTelefono"]?></td>
+        <td><?php echo $datos["medCorreo"]?></td>
+    </tr>
+  
+        }
+
+     ?>
+</table>
+
+
+<?php/*
+
+<! DOCTYPE html >
+<html>
+  <cabeza>
+    <título>Página de registro</título>
+    <link rel="hoja de estilo" type="text/css" href="css/bootstrap.css" />
+  </cabeza>
+  <cuerpo>
+    <clase div ="contenedor">
+      <clase div ="fila col-md-6 col-md-offset-3">
+        <div class="panel panel-primary">
+          <div class="panel-heading text-center">
+            <Formulario de registrode > h1< /h1>
+          </div>
+          <div class="panel-body">
+            <acción de formulario ="conectar.php" método="post">
+              <div class="form-group">
+                <label for="firstName">Nombre</label>
+                <entrada
+                  type="texto"
+                  class="form-control"
+                  id="nombre"
+                  nombre="nombre"
+                />
+              </div>
+              <div class="form-group">
+                <label for="apellido">Apellido</etiqueta>
+                <entrada
+                  type="texto"
+                  class="form-control"
+                  id="apellido"
+                  nombre="apellido"
+                />
+              </div>
+              <div class="form-group">
+                <etiqueta para="género"><de género/etiqueta>
+                <div>
+                  <etiqueta para="masculino" clase="radio-en línea"
+                    ><entrada
+                      tipo="radio"
+                      nombre="género"
+                      valor="m"
+                      id="macho"
+ />male</etiqueta
+                  >
+                  <etiqueta para="femenino" clase="radio-en línea"
+                    ><entrada
+                      tipo="radio"
+                      nombre="género"
+                      valor="f"
+                      id="hembra"
+ /><femenino/etiqueta
+                  >
+                  <etiqueta para="otros" clase="radio-en línea"
+                    ><entrada
+                      tipo="radio"
+                      nombre="género"
+                      valor="o"
+                      id="otros"
+ />Otros</etiqueta
+                  >
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <entrada
+                  type="texto"
+                  class="form-control"
+                  id="correo electrónico"
+                  nombre="correo electrónico"
+                />
+              </div>
+              <div class="form-group">
+                <label for="contraseña">Contraseña</label>
+                <entrada
+                  type="contraseña"
+                  class="form-control"
+                  id="contraseña"
+                  nombre="contraseña"
+                />
+              </div>
+              <div class="form-group">
+                <label for="número">Número de teléfono</etiqueta>
+                <entrada
+                  tipo="número"
+                  class="form-control"
+                  id="número"
+                  nombre="número"
+                />
+              </div>
+              < input type="submit" class="btn btn-primary" />
+            </forma>
+          </div>
+          <div class="panel-footer text-right">
+            <> pequeño&copy; Técnico Babaji< /pequeño>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="toast" role="alert" aria-live="asertivo" aria-atomic="true">
+  <div class="toast-header">
+    <img src="..." class="redondeado mr-2" alt="...">
+    < clasefuerte ="mr-auto">Bootstrap</strong>
+    <> pequeñohace 11 minutos</pequeño>
+    <tipo de botón ="botón" clase="ml-2 mb-1 cerrar" data-dismiss="toast" aria-label="Cerrar">
+      <span aria-hidden="true">&times; </lapso>
+    </botón>
+  </div>
+  <div class="toast-body">
+ ¡Hola mundo! Este es un mensaje del sistema.
+  </div>
+</div>
+  </cuerpo>
+</html>*/
+?>
+
+
+<?php
+/*
+  conexion basededatos
+  $nombre =  $_POST['nombre'];
+  $apellido =  $_POST['apellido'];
+  $genero =  $_POST['genero'];
+  $direccion =  $_POST['direccion'];
+  $fecha_actual =  $_POST['fecha_actual'];
+  $número =  $_POST['número'];
+
+	Conexión de base de datos
+  $conn = new mysqli('localhost','root','','test');
+	if($conn->connect_error){
+ eco "$conn->connect_error";
+ die("Error de conexión : ".  $conn->connect_error);
+	} más {
+  $stmt =  $conn->prepare("insert into registration(firstName, lastName, gender, email, password, number) values(?, ?, ?, ?, ?, ?)");
+  $stmt->bind_param("sssssi",  $firstName,  $lastName,  $gender,  $email,  $password,  $number);
+  $execval =  $stmt->ejecutar();
+ echo  $execval;
+ echo "Registro exitoso...";
+  $stmt->cerrar();
+  $conn->cerrar();
+	}
+  */
+?>

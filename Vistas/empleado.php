@@ -1,6 +1,8 @@
 <?php 
 include('../template/header.php');
 
+
+
 date_default_timezone_get('America/Honduras_city');
 $fecha_actual=date("Y-m-d");
 ?>
@@ -58,6 +60,8 @@ $fecha_actual=date("Y-m-d");
         </div>
     </div>
 </div>
+
+
 
 
 <?php include('../template/footer.php'); ?>

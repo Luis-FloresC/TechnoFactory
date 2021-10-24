@@ -9,6 +9,7 @@ $user = "gemart";
 //Contraseña
 $contra = "Jamart1590@";
 
+
 try {
     $conexion = new PDO("mysql:host=$host;dbname=$bd",$user,$contra);
     if($conexion)
@@ -24,3 +25,4 @@ try {
 
 
 ?>
+

@@ -1,11 +1,51 @@
-<?php 
-include('../template/header.php');
+<?php include('../template/header.php');?>
 
 
-
+<?php
 date_default_timezone_get('America/Honduras_city');
 $fecha_actual=date("Y-m-d");
+
+$txtID=(isset($_POST['txtID']))?$_POST['txtID']:"";
+$nombre=(isset($_POST['nombre']))?$_POST['nombre']:"";
+$apellido=(isset($_POST['apellido']))?$_POST['apellido']:"";
+$genero=(isset($_POST['genero']))?$_POST['genero']:"";
+$fecha=(isset($_POST['fecha']))?$_POST['fecha']:"";
+$estado=(isset($_POST['estado']))?$_POST['estado']:"";
+$accion=(isset($_POST['accion']))?$_POST['accion']:"";
+
+include('../Conexion/connection.php');
+
+switch($accion){
+ // INSERT INTO `bd_techno_factory`.`Empleados` (`idEmpleado`, `nombreEmpleado`, `apellidoEmpleado`, `genero`, `fechaNacimiento`, `idEstado`) VALUES ('', 'Dary', 'Lopez', 'Femenino', '1997-03-11', '4');
+
+        case"Agregar";
+$sentenciaSQL= $conexion->prepare("INSERT INTO Empleados (`idEmpleado`, `nombreEmpleado`, `apellidoEmpleado`, `genero`, `fechaNacimiento`, `idEstado`) VALUES (`idEmpleado`, `nombreEmpleado`, `apellidoEmpleado`, `genero`, `fechaNacimiento`, `idEstado`);
+");
+$sentenciaSQL->bindParam('nombreEmpleado',$nombre);
+$sentenciaSQL->bindParam('apellidoEmpleado',$apellido);
+$sentenciaSQL->bindParam('genero',$genero);
+$sentenciaSQL->bindParam('fechaNacimiento',$fecha);
+$sentenciaSQL->bindParam('idEstado',$estado);
+$sentenciaSQL->execute();
+break;
+
+case "Modificar";
+       echo "Presionado boton Modificar";
+        break;
+        
+        case "Cancelar";
+      echo "Presionado boton Cancelar";
+       break;
+}
+
+$sentenciaSQL=$conexion->prepare("SELECT * FROM Empleados");
+$sentenciaSQL->execute();
+$ListarEmpleados=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
+
+
 
 <div class="container">
     <div class="row">
@@ -13,8 +53,15 @@ $fecha_actual=date("Y-m-d");
             <center>
                 <h1 class="display-4">Empleado</h1>
             </center>
-            <form action="" class="form">
+            <form method="POST">
                 <br>
+                <div class="row form-group">
+                    <label for="txtID" class="col-form-label col-md-2">ID</label>
+                    <div class="col-md-8">
+                        <input type="text" name="txtID" value="" id="txtID" class="form-control"
+                            placeholder="Id del empleado">
+                    </div>
+                </div>
                 <div class="row form-group">
                     <label for="nombre" class="col-form-label col-md-2">Nombre</label>
                     <div class="col-md-8">
@@ -30,10 +77,10 @@ $fecha_actual=date("Y-m-d");
                     </div>
                 </div>
                 <div class="row form-group">
-                    <label for="direccion" class="col-form-label col-md-2">Direccion</label>
+                    <label for="" class="col-form-label col-md-2">Estado</label>
                     <div class="col-md-8">
-                        <input type="text" name="direccion" value="" id="direccion" class="form-control"
-                            placeholder="Escriba su direccion">
+                        <input type="text" name="estado" value="" class="form-control"
+                            placeholder="Escriba el estado del empleado">
                     </div>
                 </div>
                 <div class="row form-group">
@@ -57,10 +104,45 @@ $fecha_actual=date("Y-m-d");
                         </label>
                     </div>
                 </div>
+
+                <center>
+                    <div class="btn-group" role="group" aria-label="">
+                        <button type="button" name="accion" value="Agregar" class="btn btn-success">Agregar</button>
+                        <button type="button" name="accion" value="Modificar" class="btn btn-warning">Modificar</button>
+                        <button type="button" name="accion" value="Cancelar" class="btn btn-info">Cancelar</button>
+                    </div>
+                </center>
+
         </div>
     </div>
 </div>
 
+<div class="col-md-7">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>ApellidoEmpleado</th>
+                <th>Genero</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+          <?php foreach($ListarEmpleados as $Empleado?>
+            <tr>
+                <td><?php echo $Empleado['id']?></td>
+                <td><?php echo $Empleado['nombreEmpleado']?></td>
+                <td><?php echo $Empleado['apellidoEmpleado']?></td>
+                <td><?php echo $Empleado['genero']?></td>
+                <td><?php echo $Empleado['fechaNacimiento']?></td>
+                <td><?php echo $Empleado['idEstado']?></td>
+                <td>seleccionar / borrar </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 
 

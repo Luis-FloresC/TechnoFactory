@@ -44,6 +44,15 @@ function TotalRows($tabla)
     <script src = "https://code.iconify.design/2/2.0.3/iconify.min.js"> </script>
     <script src="../Public/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="../Public/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Public/datatables/jquery.dataTables.min.css">    
+    <link href="../Public/datatables/buttons.dataTables.min.css" rel="stylesheet"/>
+    <link href="../Public/datatables/responsive.dataTables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../Public/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="../Public/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../Public/css/font-awesome.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../public/css/AdminLTE.min.css">
 </head>
 <body>
     <div class="navbar-lateral full-reset">
@@ -91,7 +100,7 @@ function TotalRows($tabla)
                             
                            
                             <li>
-                                <a href="#"><i class="zmdi zmdi-view-list zmdi-hc-fw"></i>&nbsp;&nbsp; Lista De Productos<span class="label label-danger pull-right label-mhover"><?php  echo TotalRows("Productos"); ?></span></a>
+                                <a href="../Vistas/listaProductos.php"><i class="zmdi zmdi-view-list zmdi-hc-fw"></i>&nbsp;&nbsp; Lista De Productos<span class="label label-danger pull-right label-mhover"><?php  echo TotalRows("Productos"); ?></span></a>
                             </li>
                         </ul>
                     </li>

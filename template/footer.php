@@ -21,18 +21,59 @@
                     <div class="col-xs-12 col-sm-6">
                         <h4 class="all-tittles">Acerca de</h4>
                         <p>
-                            Esta diseñado para manejo de clientes y prestamos a largo y corto plazo.
+                            Sistema de Venta de productos para una tienda,donde se lleva un control de todas las ventas realizadas por la tienda.
                         </p>
                     </div>
                     <div class="col-xs-12 col-sm-6">
-                        <h4 class="all-tittles">Desarrollador</h4>
-                        <ul class="list-unstyled">
-                            <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; Luis Flores <a href="https://www.facebook.com/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
-                        </ul>
-                        <ul class="list-unstyled">
-                            <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; Diego López <a href="https://www.facebook.com/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
-                        </ul>
-                        <ul class="list-unstyled">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="3" class"all-tittles" ><center>Desarrolladores</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td >
+                                        <ul class="list-unstyled">
+                                            <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; Luis Flores <a href="https://www.facebook.com/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
+                                        </ul>
+                                    </td> 
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; Diego López <a href="https://www.facebook.com/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
+                                        </ul>
+                                    </td>
+                                   <td>
+                                        <ul class="list-unstyled">
+                                            <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; José Varela <a href="https://www.facebook.com/joseruben.varela.7/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
+                                        </ul>
+                                   </td>
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <ul class="list-unstyled">
+                                            <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; Noe Manueles <a href="https://www.facebook.com/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; David Mendoza <a href="https://www.facebook.com/DavidMXZ/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; Gerson Martínez <a href="https://www.facebook.com/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
+                                        </ul>
+                                    </td>    
+                                </tr>
+                            </tbody>
+                        </table>
+                       
+                     
+                     
+                     
+                     <!--   <ul class="list-unstyled">
                             <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; José Varela <a href="https://www.facebook.com/joseruben.varela.7/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
                         </ul>
                         <ul class="list-unstyled">
@@ -43,8 +84,11 @@
                         </ul>
                         <ul class="list-unstyled">
                             <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; Noe Manueles <a href="https://www.facebook.com/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
-                        </ul>
+                        </ul> 
+-->
+          
                     </div>
+          
                 </div>
             </div>
             <div class="footer-copyright full-reset all-tittles">© <?php $Year = date("Y"); echo $Year; ?> Grupo 6 - Portales web 2</div>

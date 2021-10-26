@@ -86,7 +86,7 @@ switch ($_GET["op"]){
 			$_SESSION['nombre']=$fetch->nombre;
 	        $_SESSION['apellido']=$fetch->apellido;
 			$_SESSION['user']=$fetch->user;
-			$_SESSION['user']=$fetch->id;
+			$_SESSION['id']=$fetch->id;
 			
 		}
 	

@@ -6,7 +6,7 @@
                     <h4 class="modal-title text-center all-tittles">ayuda del sistema</h4>
                 </div>
                 <div class="modal-body">
-                    Este programa esta desarrollado para calcular prestamos a largo y corto plazo.
+                    Este programa esta desarrollado para la venta de Productos.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="zmdi zmdi-thumb-up"></i> &nbsp; De acuerdo</button>
@@ -69,24 +69,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                       
-                     
-                     
-                     
-                     <!--   <ul class="list-unstyled">
-                            <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; José Varela <a href="https://www.facebook.com/joseruben.varela.7/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
-                        </ul>
-                        <ul class="list-unstyled">
-                            <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; David Mendoza <a href="https://www.facebook.com/DavidMXZ/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
-                        </ul>
-                        <ul class="list-unstyled">
-                            <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; Gerson Martínez <a href="https://www.facebook.com/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
-                        </ul>
-                        <ul class="list-unstyled">
-                            <li><i class="zmdi zmdi-check zmdi-hc-fw"></i>&nbsp; Noe Manueles <a href="https://www.facebook.com/"><i  class="zmdi zmdi-facebook zmdi-hc-fw footer-social"> </i></a><a href="https://twitter.com/home"><i class="zmdi zmdi-twitter zmdi-hc-fw footer-social"></i></a></li>
-                        </ul> 
--->
-          
+
                     </div>
           
                 </div>
@@ -94,7 +77,7 @@
             <div class="footer-copyright full-reset all-tittles">© <?php $Year = date("Y"); echo $Year; ?> Grupo 6 - Portales web 2</div>
         </footer>
     </div>
-    <script src="../Public/js/jquery-3.1.1.min.js"></script>
+  <script src="../Public/js/jquery-3.1.1.min.js"></script> 
     <!-- Bootstrap 3.3.5 -->
     <script src="../Public/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
@@ -111,5 +94,9 @@
 
     <script src="../Public/js/bootbox.min.js"></script> 
     <script src="../Public/js/bootstrap-select.min.js"></script>
+
+
+
+
 </body>
 </html>

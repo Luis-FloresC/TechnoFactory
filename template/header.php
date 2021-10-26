@@ -26,7 +26,7 @@ function TotalRows($tabla)
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Inicio</title>
+<title>Inicio</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="Shortcut Icon" type="image/x-icon" href="../Public/assets/icons/book.ico" />
@@ -52,7 +52,7 @@ function TotalRows($tabla)
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../Public/css/font-awesome.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../public/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../Public/css/AdminLTE.min.css">
 </head>
 <body>
     <div class="navbar-lateral full-reset">
@@ -95,7 +95,7 @@ function TotalRows($tabla)
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-money zmdi-hc-fw"></i>&nbsp;&nbsp; Ventas <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="#"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Realizar Venta</a>
+                                <a href="\Vistas\ventas.php"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Realizar Venta</a>
                             </li>
                             
                            

@@ -1,38 +1,6 @@
 <?php include('../template/header.php'); ?>
 
 
-<?php  
-$txtID=(isset($_POST['txtID']))?$_POST['txtID']:"";
-$txtnombre=(isset($_POST['txtnombre']))?$_POST['txtnombre']:"";
-$txtapellido=(isset($_POST['txtapellido']))?$_POST['txtapellido']:"";
-$txtdireccion=(isset($_POST['txtdireccion']))?$_POST['txtdireccion']:"";
-$txtgenero=(isset($_POST['txtIgenero']))?$_POST['txtgenero']:"";
-$accion=(isset($_POST['accion']))?$_POST['accion']:"";
-
-
-
-switch($accion){
-
-     case "Agregar";
-      echo "Presionado boton agregar";
-       break;
-
-       case "Modificar";
-       echo "Presionado boton Modificar";
-        break;
-        
-        case "Cancelar";
-      echo "Presionado boton Cancelar";
-       break;
-}
- 
-
-
-
-
-
-?>
-
 
 
 <div class="col-md-5">
@@ -87,30 +55,45 @@ switch($accion){
 
 </div>
 
-
-<div class="col-md-7">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Direccion</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>txtnombre</td>
-                <td>txtapellido</td>
-                <td>barrio</td>
-                <td>seleccionar / borrar </td>
-            </tr>
-        </tbody>
-    </table>
-
-
-</div>
-
+<?php/*
+<table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    include("../controladores/tipos.php");
+                    $ctipo= new ControladorTipo;
+                    $datos=$ctipo->Listar();
+                    for ($i = 0; $i < count($datos); $i++) {
+                ?>
+                <tr>
+                <th scope="row"><?php echo $datos[$i]["id"];?></th>
+                <td><?php echo $datos[$i]["nombre"];?></td>
+                <td><?php echo $datos[$i]["imagen"];?></td>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck" 
+                        <?php 
+                        if($datos[$i]["activo"]){
+                            echo "checked";
+                        }
+                        ?>
+                        >
+                        <label class="form-check-label" for="gridCheck">
+                            Activo
+                        </label>
+                    </div>
+                </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
 
 <br>
 <br>

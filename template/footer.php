@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
 
-                        <table class="table">
+                        <table class="">
                             <thead>
                                 <tr>
                                     <th colspan="3" class"all-tittles" ><center>Desarrolladores</center></th>

@@ -1,102 +1,93 @@
-<?php include('../template/header.php'); ?>
+<?php
+require '../template/header.php';
+?>
 
-
-
-
-<div class="col-md-5">
-
-
-    <form method="POST">
-
-        <div class="form-group">
-            <label for="txtID">ID:</label>
-            <input type="text" class="form-control" name="txtID" id="txtID" placeholder="ID del Empleado">
-        </div>
-
-        <div class="form-group">
-            <label for="txtnombre">Nombre:</label>
-            <input type="text" class="form-control" name="txtnombre" id="txtnombre" placeholder="Nombre del Empleado">
-        </div>
-
-        <div class="form-group">
-            <label for="txtapellido">Apellido:</label>
-            <input type="text" class="form-control" name="txtapellido" id="txtapellido"
-                placeholder="Apellido del Empleado">
-        </div>
-
-        <div class="form-group">
-            <label for="txtdireccion">Direccion:</label>
-            <input type="text" class="form-control" name="txtdireccion" id="txtdireccion"
-                placeholder="Direccion del Empleado">
-        </div>
-
-        <div class="form-group">
-            <label for="txtgenero">Genero</label>
-            <div class="form-check form-check-inline">
-                <label class="form-check-label">
-
-                    <input type="radio" class="form-check-input" name="genero">
-                    Mujer
-                </label>
-                <label class="form-check-label">
-
-                    <input type="radio" class="form-check-input" name="genero">
-                    Hombre
-                </label>
-            </div>
-
-            <div class="btn-group" role="group" aria-label="">
-                <button type="button" name="accion" value="Agregar" class="btn btn-success">Agregar</button>
-                <button type="button" name="accion" value="Modificar" class="btn btn-warning">Modificar</button>
-                <button type="button" name="accion" value="Cancelar" class="btn btn-info">Cancelar</button>
-            </div>
-
-    </form>
-
-</div>
-
-<?php/*
-<table class="table">
-            <thead class="thead-dark">
-                <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Imagen</th>
-                <th scope="col">Estado</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    include("../controladores/tipos.php");
-                    $ctipo= new ControladorTipo;
-                    $datos=$ctipo->Listar();
-                    for ($i = 0; $i < count($datos); $i++) {
-                ?>
-                <tr>
-                <th scope="row"><?php echo $datos[$i]["id"];?></th>
-                <td><?php echo $datos[$i]["nombre"];?></td>
-                <td><?php echo $datos[$i]["imagen"];?></td>
-                <td>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck" 
-                        <?php 
-                        if($datos[$i]["activo"]){
-                            echo "checked";
-                        }
-                        ?>
-                        >
-                        <label class="form-check-label" for="gridCheck">
-                            Activo
-                        </label>
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+            <form action="ListarEmpleados.php"  method="POST">
+                    <br>
+                    <div class="row form-group">
+                        <label for="txtID" class="col-form-label col-md-2">ID</label>
+                        <div class="col-md-8">
+                            <input type="text" name="txtID" value="" id="txtID" class="form-control"
+                                placeholder="Id del empleado">
+                        </div>
                     </div>
-                </td>
-                </tr>
-                <?php } ?>
-            </tbody>
-        </table>
+                    <div class="row form-group">
+                        <label for="nombre" class="col-form-label col-md-2">Nombre</label>
+                        <div class="col-md-8">
+                            <input type="text" name="nombre" value="" id="nombre" class="form-control"
+                                placeholder="Escriba su nombre">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="apellido" class="col-form-label col-md-2">Apellido</label>
+                        <div class="col-md-8">
+                            <input type="text" name="apellido" value="" id="apellido" class="form-control"
+                                placeholder="Escriba su apellido">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="" class="col-form-label col-md-2">Estado</label>
+                        <div class="col-md-8">
+                            <input type="text" name="estado" value="" class="form-control"
+                                placeholder="Escriba el estado del empleado">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="" class="col-form-label col-md-2">Fecha de Nacimiento</label>
+                        <div class="col-md-8">
+                            <input type="date" name="fecha" getdate="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="" class="col-form-lable col-md-4">Genero</label>
+                        <div class="col-md-8 form-check form-check-inline">
+                            <label class="form-check-label">
 
-<br>
-<br>
+                                <input type="radio" class="form-check-input" name="genero">
+                                Mujer
+                            </label>
+                            <label class="form-check-label">
+
+                                <input type="radio" class="form-check-input" name="genero">
+                                Hombre
+                            </label>
+                        </div>
+                    </div>
 
 
-<?php include('../template/footer.php'); ?>
+                    <div class="btn-group" role="group" aria-label="">
+                        <button type="submit" class="btn btn-success">Agregar</button>
+                        <button type="button" class="btn btn-warning">Modificar</button>
+                        <button type="button" class="btn btn-info">Cancelar</button>
+                    </div>
+            </div>
+                <div class="box">
+                    <div class="panel-body table-responsive">
+                        <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
+                            <thead>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apelllido</th>
+                                <th>Genero</th>
+                                <th>FechaNacimiento</th>
+                                <th>FechaRegistro</th>
+                                <th>Estado</th>
+                            </thead>
+
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<?php
+require '../template/footer.php';
+?>

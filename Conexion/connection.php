@@ -10,9 +10,9 @@ $user = "gemart";
 $contra = "Jamart1590@";
 
 
-try {
-    $conexion = new PDO("mysql:host=$host;dbname=$bd",$user,$contra);
-    if($conexion)
+//try {
+    $conexion = new mysqli_connect("mysql:host=$host;dbname=$bd",$user,$contra);
+   if($conexion)
     {
         $var = "Conexion exitosa con la base de Datos $bd";
         echo "<script> alert('".$var."'); </script>";

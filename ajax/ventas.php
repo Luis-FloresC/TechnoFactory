@@ -38,7 +38,7 @@ if ($_POST['action'] == 'searchCliente') {
   if (!empty($_POST['cliente'])) {
     $dni = $_POST['cliente'];
 
-    $query = mysqli_query($conexion, "SELECT idCliente 'idcliente',dni,nombreCliente 'nombre',genero 'genero',fechaNacimiento 'fecha_nac' FROM Clientes WHERE dni LIKE '$dni'");
+    $query = mysqli_query($conexion, "SELECT idCliente as id,dni,nombreCliente 'nombre',genero 'genero',fechaNacimiento 'fecha_nac' FROM Clientes WHERE dni LIKE '$dni'");
     mysqli_close($conexion);
     $result = mysqli_num_rows($query);
     $data = '';
@@ -222,7 +222,7 @@ if ($_POST['action'] == 'delProductoDetalle') {
     $token = md5($_SESSION['idUser']);
 
 
-    $query_iva = mysqli_query($conexion, "SELECT igv FROM configuracion");
+    $query_iva = mysqli_query($conexion, "SELECT 15 'igv'");
     $result_iva = mysqli_num_rows($query_iva);
 
     $query_detalle_tmp = mysqli_query($conexion, "CALL del_detalle_temp($id_detalle,'$token')");
@@ -288,7 +288,7 @@ if ($_POST['action'] == 'delProductoDetalle') {
 if ($_POST['action'] == 'anularVenta') {
     $data = "";
   $token = md5($_SESSION['idUser']);
-  $query_del = mysqli_query($conexion, "DELETE FROM detalle_temp WHERE token_user = '$token'");
+  $query_del = mysqli_query($conexion, "DELETE FROM detalleTemporal WHERE token_user = '$token'");
   mysqli_close($conexion);
   if ($query_del) {
     echo 'ok';
@@ -299,14 +299,15 @@ if ($_POST['action'] == 'anularVenta') {
 }
 //procesarVenta
 if ($_POST['action'] == 'procesarVenta') {
+  print_r($_POST);
   if (empty($_POST['codcliente'])) {
     $codcliente = 1;
   }else{
     $codcliente = $_POST['codcliente'];
 
-    $token = md5($_SESSION['id']);
-    $usuario = $_SESSION['id'];
-    $query = mysqli_query($conexion, "SELECT * FROM detalle_temp WHERE token_user = '$token' ");
+    $token = md5($_SESSION['idUser']);
+    $usuario = $_SESSION['idUser'];
+    $query = mysqli_query($conexion, "SELECT * FROM detalleTemporal WHERE token_user = '$token' ");
     $result = mysqli_num_rows($query);
   }
 
@@ -316,6 +317,7 @@ if ($_POST['action'] == 'procesarVenta') {
     if ($result_detalle > 0) {
       $data = mysqli_fetch_assoc($query_procesar);
       echo json_encode($data,JSON_UNESCAPED_UNICODE);
+      
     }else {
       echo "error";
     }
@@ -335,7 +337,7 @@ if ($_POST['action'] == 'procesarVenta') {
 
       $token = md5($_SESSION['idUser']);
       $usuario = $_SESSION['idUser'];
-      $query = mysqli_query($conexion, "SELECT * FROM detalle_temp WHERE token_user = '$token' ");
+      $query = mysqli_query($conexion, "SELECT * FROM detalleTemporal WHERE token_user = '$token' ");
       $result = mysqli_num_rows($query);
     }
 
@@ -361,8 +363,8 @@ if ($_POST['action'] == 'procesarVenta') {
     } else {
       $codcliente = $_POST['codcliente'];
 
-      $token = md5($_SESSION['id']);
-      $usuario = $_SESSION['id'];
+      $token = md5($_SESSION['idUser']);
+      $usuario = $_SESSION['idUser'];
       $query = mysqli_query($conexion, "SELECT * FROM detalleTemporal WHERE token_user = '$token' ");
       $result = mysqli_num_rows($query);
     }
@@ -387,7 +389,7 @@ if ($_POST['action'] == 'procesarVenta') {
   if ($_POST['action'] == 'infoFactura') {
   if (!empty($_POST['nofactura'])) {
     $nofactura = $_POST['nofactura'];
-    $query = mysqli_query($conexion, "SELECT * FROM factura WHERE nofactura = '$nofactura' AND estado = 1");
+    $query = mysqli_query($conexion, "SELECT * FROM Ventas WHERE idVenta = '$nofactura' ");
     mysqli_close($conexion);
     $result = mysqli_num_rows($query);
     if ($result > 0) {

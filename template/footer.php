@@ -95,6 +95,51 @@
     <script src="../Public/js/bootbox.min.js"></script> 
     <script src="../Public/js/bootstrap-select.min.js"></script>
 
+    
+    <script src="../Public/DiseñoVentas/vendor/jquery/jquery.min.js"></script>
+<script src="../Public/DiseñoVentas/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="../Public/DiseñoVentas/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="../Public/DiseñoVentas/js/all.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="../Public/DiseñoVentas/js/sb-admin-2.min.js"></script>
+<script src="../Public/DiseñoVentas/js/jquery.dataTables.min.js"></script>
+<script src="../Public/DiseñoVentas/js/dataTables.bootstrap4.min.js"></script>
+<script src="../Public/DiseñoVentas/js/sweetalert2@10.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#table').DataTable({
+      language: {
+        "decimal": "",
+        "emptyTable": "No hay datos",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+        "infoEmpty": "Mostrando 0 a 0 de 0 registros",
+        "infoFiltered": "(Filtro de _MAX_ total registros)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ registros",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "No se encontraron coincidencias",
+        "paginate": {
+          "first": "Primero",
+          "last": "Ultimo",
+          "next": "Siguiente",
+          "previous": "Anterior"
+        },
+        "aria": {
+          "sortAscending": ": Activar orden de columna ascendente",
+          "sortDescending": ": Activar orden de columna desendente"
+        }
+      }
+    });
+    var usuarioid = '<?php echo $_SESSION['idUser']; ?>';
+    searchForDetalle(usuarioid);
+  });
+</script>
 
 
 

@@ -1,6 +1,7 @@
 <?php
 ob_start();
 session_start();
+
 //Evaluamos si el usuario ha iniciado sesión si no está vacia la variables de sesión
 //nombre indica que el usuario ha iniciado sesión
 if (!isset($_SESSION["nombre"]))
@@ -19,18 +20,20 @@ require_once '../template/header.php';
     </div>
 </div>
 
+
+<?php print_r($_POST); ?>
 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <h4 class="text-center">Datos del Cliente</h4>
-                                <a href="#" class="btn btn-primary btn_new_cliente"><i class="fas fa-user-plus"></i> Nuevo Cliente</a>
+                                <a href="#" class="btn btn-primary btn_new_cliente">Nuevo Cliente  <i class="zmdi zmdi-face"></i> </a>
                             </div>
                             <div class="card">
                                 <div class="card-body">
                                     <form method="post" name="form_new_cliente_venta" id="form_new_cliente_venta">
                                         <input type="hidden" name="action" value="addCliente">
-                                        <input type="hidden" id="idcliente" value="1" name="idcliente" required>
+                                        <input type="text" id="idcliente" value="1" name="idcliente" required>
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="form-group">
@@ -68,8 +71,8 @@ require_once '../template/header.php';
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label><i class="fas fa-user"></i> VENDEDOR</label>
-                                        <p style="font-size: 16px; text-transform: uppercase; color: blue;"><?php echo $_SESSION['nombre']; ?></p>
+                                        <label><i class="zmdi zmdi-account-add zmdi-hc-fw"></i> VENDEDOR</label>
+                                        <p style="font-size: 16px; text-transform: uppercase; color: blue;"><?php echo $NombreUsuario; ?></p>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -80,9 +83,10 @@ require_once '../template/header.php';
                                     </div>
                                 </div>
                             </div>
+                            <strong>
                               <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead class="thead-dark">
+                                <table class="table text-dark">
+                                    <thead class="thead-white">
                                         <tr>
                                             <th width="100px">Código</th>
                                             <th>Des.</th>
@@ -119,7 +123,7 @@ require_once '../template/header.php';
                                         <!-- Contenido ajax -->
                                     </tfoot>
                                 </table>
-
+                                </strong>
                               </div>
                         </div>
                     </div>

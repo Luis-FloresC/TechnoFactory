@@ -129,7 +129,8 @@ $(document).ready(function(){
           $('.btn_new_cliente').slideDown();
         }else {
           var data = $.parseJSON(response);
-          $('#idcliente').val(data.idCliente);
+       
+          $('#idcliente').val(data.id);
           $('#nom_cliente').val(data.nombre);
           $('#genero').val(data.genero);
           $('#fecha_nac').val(data.fecha_nac);
@@ -332,6 +333,7 @@ $(document).ready(function(){
     if (rows > 0) {
       var action = 'procesarVenta';
       var codcliente = $('#idcliente').val();
+      
       $.ajax({
         url: '../ajax/ventas.php',
         type: 'POST',
@@ -339,16 +341,25 @@ $(document).ready(function(){
         data: {action:action,codcliente:codcliente},
         success: function(response) {
         if (response != 0) {
-          var info = JSON.parse(response);
-          //console.log(info);
-          generarPDF(info.codcliente,info.nofactura);
-          location.reload();
+          try {
+            var info = JSON.parse(response);
+            //console.log(info);
+           
+            generarPDF(info.codcliente,info.nofactura);
+            location.reload();
+          }
+          catch(err) {
+            
+            alert("Venta Realizada con exito...");
+            location.reload();
+          }
+        
         }else {
           console.log('no hay dato');
         }
         },
         error: function(error) {
-  
+          location.reload();
         }
       });
     }
@@ -445,7 +456,7 @@ $(document).ready(function(){
   $('.alertChangePass').slideDown();
   }
   function generarPDF(cliente,factura) {
-    url = '../Public/DiseñoVentas/factura/generaFactura.php?cl='+cliente+'&f='+factura;
+    url = '../Public/factura/generaFactura.php?cl='+cliente+'&f='+factura;
     window.open(url, '_blank');
   }
   function del_product_detalle(correlativo) {

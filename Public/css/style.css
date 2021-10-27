@@ -1,11 +1,4 @@
-@font-face{
-    font-family: "Titulos";
-    src: url("../fonts/AlegreyaSansSC-Regular.ttf"), url("../fonts/AlegreyaSansSC-Regular.eot"), url("../fonts/AlegreyaSansSC-Regular.woff"), url("../fonts/AlegreyaSansSC-Regular.woff2"), url("../fonts/AlegreyaSansSC-Regular.svg");
-}
-@font-face{
-    font-family: "Parrafos";
-    src: url("../fonts/OpenSans-CondLight.ttf"), url("../fonts/OpenSans-CondLight.eot"), url("../fonts/OpenSans-CondLight.woff"), url("../fonts/OpenSans-CondLight.woff2"), url("../fonts/OpenSans-CondLight.svg");
-}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -15,6 +8,9 @@ html, body {
     font-family: "Parrafos" !important;
     background-color: #fff;
 }
+
+
+
 .media-hover{padding: 7px; border-radius: 4px;}
 .media-hover:hover{ background-color: #F5F5F5; }
 .all-tittles{ font-family: "Titulos" !important; }

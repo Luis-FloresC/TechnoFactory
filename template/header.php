@@ -53,6 +53,7 @@ function TotalRows($tabla)
     <link rel="stylesheet" href="../Public/css/font-awesome.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../Public/css/AdminLTE.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="navbar-lateral full-reset">

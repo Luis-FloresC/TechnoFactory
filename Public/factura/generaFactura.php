@@ -2,23 +2,23 @@
 	session_start();
 	if(empty($_SESSION['nombre']))
 	{
-		header('location: ../../index.php');
+		header('location: ../index.php');
 	}
-	include "../../Conexion/conexion.php";
+	include "../Conexion/Conexion.php";
 	if(empty($_REQUEST['cl']) || empty($_REQUEST['f']))
 	{
 		echo "No es posible generar la factura.";
 	}else{
 		$codCliente = $_REQUEST['cl'];
 		$noFactura = $_REQUEST['f'];
-		$consulta = mysqli_query($conexion, "SELECT * FROM configuracion");
+		$consulta = mysqli_query($conexion, "call configuracion();");
 		$resultado = mysqli_fetch_assoc($consulta);
-		$ventas = mysqli_query($conexion, "SELECT * FROM factura WHERE nofactura = $noFactura");
+		$ventas = mysqli_query($conexion, "SELECT * FROM Ventas WHERE idVenta = $noFactura");
 		$result_venta = mysqli_fetch_assoc($ventas);
-		$clientes = mysqli_query($conexion, "SELECT * FROM cliente WHERE idcliente = $codCliente");
+		$clientes = mysqli_query($conexion, "SELECT c.idCliente ,concat(c.nombreCliente,' ',c.apellidoCliente) 'nombre',c.dni,TIMESTAMPDIFF(YEAR,c.fechaNacimiento,now())'edad' FROM Clientes c WHERE c.idCliente = $codCliente");
 		$result_cliente = mysqli_fetch_assoc($clientes);
-		$productos = mysqli_query($conexion, "SELECT d.nofactura, d.codproducto, d.cantidad, p.codproducto, p.descripcion, p.precio FROM detallefactura d INNER JOIN producto p ON d.nofactura = $noFactura WHERE d.codproducto = p.codproducto");
-		require_once 'fpdf/fpdf.php';
+		$productos = mysqli_query($conexion, "call bd_techno_factory.Factura($noFactura);");
+		require_once './fpdf/fpdf.php';
 		$pdf = new FPDF('P', 'mm', array(80, 200));
 		$pdf->AddPage();
 		$pdf->SetMargins(1, 0, 0);
@@ -26,7 +26,7 @@
 		$pdf->SetFont('Arial', 'B', 9);
 		$pdf->Cell(60, 5, utf8_decode($resultado['nombre']), 0, 1, 'C');
 		$pdf->Ln();
-		$pdf->image("img/logo.jpg", 50, 18, 15, 15, 'JPG');
+		$pdf->image("img/LT.png", 50, 18, 15, 15, 'PNG');
 		$pdf->SetFont('Arial', 'B', 7);
 		$pdf->Cell(15, 5, "Ruc: ", 0, 0, 'L');
 		$pdf->SetFont('Arial', '', 7);
@@ -54,8 +54,8 @@
 		$pdf->Cell(25, 5, utf8_decode("Dirección"), 0, 1, 'L');
 		$pdf->SetFont('Arial', '', 7);
 		$pdf->Cell(40, 5, utf8_decode($result_cliente['nombre']), 0, 0, 'L');
-		$pdf->Cell(20, 5, utf8_decode($result_cliente['telefono']), 0, 0, 'L');
-		$pdf->Cell(25, 5, utf8_decode($result_cliente['direccion']), 0, 1, 'L');
+		$pdf->Cell(20, 5, utf8_decode($result_cliente['dni']), 0, 0, 'L');
+		$pdf->Cell(25, 5, utf8_decode($result_cliente['edad']), 0, 1, 'L');
 		$pdf->SetFont('Arial', 'B', 7);
 		$pdf->Cell(75, 5, "Detalle de Productos", 0, 1, 'L');
 		$pdf->SetTextColor(0, 0, 0);
@@ -75,7 +75,7 @@
 		$pdf->Ln();
 		$pdf->SetFont('Arial', 'B', 10);
 
-		$pdf->Cell(76, 5, 'Total: ' . number_format($result_venta['totalfactura'], 2, '.', ','), 0, 1, 'R');
+		$pdf->Cell(76, 5, 'Total: ' . number_format($result_venta['subTotal'], 2, '.', ','), 0, 1, 'R');
 		$pdf->Ln();
 		$pdf->SetFont('Arial', '', 7);
 		$pdf->Cell(80, 5, utf8_decode("Gracias por su preferencia"), 0, 1, 'C');

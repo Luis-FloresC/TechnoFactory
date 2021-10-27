@@ -118,7 +118,7 @@ if ($_POST['action'] == 'addProductoDetalle') {
         <td class="textright">'.$impuesto.'</td>
     </tr>
     <tr>
-        <td colspan="5" class="textright">Igv ('.$iva.'%)</td>
+        <td colspan="5" class="textright">ISV ('.$iva.'%)</td>
         <td class="textright">'. $tl_sniva.'</td>
     </tr>
     <tr>
@@ -190,7 +190,7 @@ if ($_POST['action'] == 'searchForDetalle') {
         <td class="textright">'.$impuesto.'</td>
     </tr>
     <tr>
-        <td colspan="5" class="textright">Igv ('.$iva.')</td>
+        <td colspan="5" class="textright">ISV ('.$iva.')%</td>
         <td class="textright">'. $tl_sniva.'</td>
     </tr>
     <tr>
@@ -264,7 +264,7 @@ if ($_POST['action'] == 'delProductoDetalle') {
         <td class="textright">'.$impuesto.'</td>
     </tr>
     <tr>
-        <td colspan="5" class="textright">Igv ('.$iva.')</td>
+        <td colspan="5" class="textright">ISV ('.$iva.') %</td>
         <td class="textright">'. $tl_sniva.'</td>
     </tr>
     <tr>

@@ -21,7 +21,7 @@ require_once '../template/header.php';
 </div>
 
 
-<?php print_r($_POST); ?>
+
 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
@@ -33,7 +33,7 @@ require_once '../template/header.php';
                                 <div class="card-body">
                                     <form method="post" name="form_new_cliente_venta" id="form_new_cliente_venta">
                                         <input type="hidden" name="action" value="addCliente">
-                                        <input type="text" id="idcliente" value="1" name="idcliente" required>
+                                        <input type="hidden" id="idcliente" value="1" name="idcliente" required>
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="form-group">

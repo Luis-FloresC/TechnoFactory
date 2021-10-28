@@ -350,7 +350,9 @@ $(document).ready(function(){
           }
           catch(err) {
         
-            swal("Venta Realizada con exito")
+            swal("Venta Realizada con Éxito!", {
+              icon: "success",
+            })
             .then((value) => {
               $(location).attr("href","ventas.php");
             });

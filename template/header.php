@@ -103,6 +103,10 @@ function TotalRows($tabla)
                             <li>
                                 <a href="../Vistas/listaProductos.php"><i class="zmdi zmdi-view-list zmdi-hc-fw"></i>&nbsp;&nbsp; Lista De Productos<span class="label label-danger pull-right label-mhover"><?php  echo TotalRows("Productos"); ?></span></a>
                             </li>
+
+                            <li>
+                                <a href="../Vistas/listaVentas.php"><i class="zmdi zmdi-view-list zmdi-hc-fw"></i>&nbsp;&nbsp; Lista De Ventas<span class="label label-danger pull-right label-mhover"><?php  echo TotalRows("Ventas"); ?></span></a>
+                            </li>
                         </ul>
                     </li>
                     <li>

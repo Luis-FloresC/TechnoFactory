@@ -15,6 +15,72 @@
           </div>
 </div>
 
+<!-- Button trigger modal 
+<button type="button" class="btn btn-{:primary}" data-toggle="modal" data-target="#exampleModal" data-whatever="bootstrap@getbootstrap.com">Venta Realizada con exito</button>
+-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">New message</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<form>
+<div class="form-group">
+<label for="recipient-name" class="col-form-label">Email:</label>
+<input type="text" class="form-control" id="recipient-name">
+</div>
+<div class="form-group">
+<label for="message-text" class="col-form-label">Message:</label>
+<textarea class="form-control" id="message-text"></textarea>
+</div>
+</form>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<button type="button" class="btn btn-primary">Send message</button>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+                <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    Add rows here
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#exampleModal').on('show.bs.modal', event => {
+        var button = $(event.relatedTarget);
+        var modal = $(this);
+        // Use above variables to manipulate the DOM
+        
+    });
+</script>
+
 <footer class="footer full-reset">
             <div class="container-fluid">
                 <div class="row">
@@ -91,23 +157,24 @@
     <script src="../Public/datatables/jszip.min.js"></script>
     <script src="../Public/datatables/pdfmake.min.js"></script>
     <script src="../Public/datatables/vfs_fonts.js"></script> 
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../Public/js/bootbox.min.js"></script> 
     <script src="../Public/js/bootstrap-select.min.js"></script>
 
-    
-    <script src="../Public/DiseñoVentas/vendor/jquery/jquery.min.js"></script>
+<!--
+<script src="../Public/DiseñoVentas/vendor/jquery/jquery.min.js"></script>
 <script src="../Public/DiseñoVentas/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Core plugin JavaScript-->
+ Core plugin JavaScript
 <script src="../Public/DiseñoVentas/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="../Public/DiseñoVentas/js/all.min.js"></script>
 
-<!-- Custom scripts for all pages-->
+ Custom scripts for all pages
 <script src="../Public/DiseñoVentas/js/sb-admin-2.min.js"></script>
 <script src="../Public/DiseñoVentas/js/jquery.dataTables.min.js"></script>
 <script src="../Public/DiseñoVentas/js/dataTables.bootstrap4.min.js"></script>
-<script src="../Public/DiseñoVentas/js/sweetalert2@10.js"></script>
+<script src="../Public/DiseñoVentas/js/sweetalert2@10.js"></script> 
+-->
 <script type="text/javascript">
   $(document).ready(function() {
     $('#table').DataTable({

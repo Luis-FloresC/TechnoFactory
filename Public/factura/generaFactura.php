@@ -1,10 +1,11 @@
 <?php
 	session_start();
-	if(empty($_SESSION['nombre']))
+	if(empty(!$_SESSION['nombre']))
 	{
-		header('location: ../index.php');
+		header('location: ../../index.php');
 	}
-	include "../Conexion/Conexion.php";
+	include "../../Conexion/Conexion.php";
+	
 	if(empty($_REQUEST['cl']) || empty($_REQUEST['f']))
 	{
 		echo "No es posible generar la factura.";

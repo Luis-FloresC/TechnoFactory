@@ -346,22 +346,31 @@ $(document).ready(function(){
             //console.log(info);
            
             generarPDF(info.codcliente,info.nofactura);
-            location.reload();
+            
           }
           catch(err) {
-            
-            alert("Venta Realizada con exito...");
-            location.reload();
-          }
         
+            swal("Venta Realizada con exito")
+            .then((value) => {
+              $(location).attr("href","ventas.php");
+            });
+            //alert("Venta Realizada con exito...");
+        
+           
+           
+            
+            
+          }
+           
         }else {
           console.log('no hay dato');
         }
         },
         error: function(error) {
-          location.reload();
+         // location.reload();
         }
       });
+     
     }
   });
   

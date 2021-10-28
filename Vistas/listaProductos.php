@@ -14,7 +14,8 @@ require '../template/header.php';
 ?>
 <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">        
+     
+      <div class="container-fluid">        
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -30,15 +31,15 @@ require '../template/header.php';
                     <div class="panel-body table-responsive" id="listadoregistros">
                         <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
                           <thead>
-                           <th>#</th>
-                           <th>Nombre</th>
+                           <th>#&nbsp;&nbsp;&nbsp;</th>
+                           <th>Nombre &nbsp;&nbsp;&nbsp;</th>
                            <th>Descripción</th>
-                           <th>Modelo</th>
-                           <th>Marca</th>
-                           <th>Categoria</th>
-                           <th>Cantidad</th>
-                           <th>Precio</th>
-                           <th>Estado</th>
+                           <th>Modelo&nbsp;&nbsp;&nbsp;</th>
+                           <th>Marca&nbsp;&nbsp;&nbsp;</th>
+                           <th>Categoria&nbsp;&nbsp;&nbsp;</th>
+                           <th>Cantidad&nbsp;&nbsp;&nbsp;</th>
+                           <th>Precio&nbsp;&nbsp;&nbsp;</th>
+                           <th>Estado&nbsp;&nbsp;</th>
                           </thead>
                           <tbody>                            
                           </tbody>
@@ -52,6 +53,7 @@ require '../template/header.php';
       </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
   <!--Fin-Contenido-->
+
 <?php
 require '../template/footer.php';
 ?>

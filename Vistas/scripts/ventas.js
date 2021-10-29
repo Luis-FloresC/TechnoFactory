@@ -350,6 +350,8 @@ $(document).ready(function(){
           }
           catch(err) {
         
+            
+           
             swal("Venta Realizada con Éxito!", {
               icon: "success",
             })

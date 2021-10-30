@@ -115,11 +115,11 @@ if ($_POST['action'] == 'addProductoDetalle') {
     $total = round($tl_sniva + $impuesto, 2);
     $detalleTotales ='<tr>
         <td colspan="5" class="textright">Sub_Total S/.</td>
-        <td class="textright">'.$impuesto.'</td>
+        <td class="textright">'.$tl_sniva.'</td>
     </tr>
     <tr>
         <td colspan="5" class="textright">ISV ('.$iva.'%)</td>
-        <td class="textright">'. $tl_sniva.'</td>
+        <td class="textright">'. $impuesto.'</td>
     </tr>
     <tr>
         <td colspan="5" class="textright">Total S/.</td>

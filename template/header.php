@@ -19,7 +19,7 @@ function TotalRows($tabla)
    return $count;
 }
 
-
+  
 
 
 ?>
@@ -121,6 +121,7 @@ function TotalRows($tabla)
                             <li ><a href="#"><i class="zmdi zmdi-view-module zmdi-hc-fw"></i>&nbsp;&nbsp; Modelos</a></li>
                             <li><a href="#"><i class="zmdi zmdi-adb zmdi-hc-fw"></i>&nbsp;&nbsp; Marcas</a></li>
                             <li><a href="#"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Categorias</a></li>
+                            <li><a href="Usuario.php"><i class="zmdi zmdi-account-circle zmdi-hc-fw"></i>&nbsp;&nbsp; Usuarios</a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="zmdi zmdi-laptop-mac zmdi-hc-fw"></i>&nbsp;&nbsp; Productos</a></li>
@@ -141,7 +142,7 @@ function TotalRows($tabla)
                 <li  class="tooltips-general exit-system-button" data-href="../index.php" data-placement="bottom" title="Salir del sistema">
                     <i class="zmdi zmdi-power"></i>
                 </li>
-                <li  class="tooltips-general search-book-button" data-href="searchbook.html" data-placement="bottom" title="Buscar Cliente">
+                <li  class="tooltips-general search-book-button" data-href="" data-placement="bottom" title="Buscar Cliente">
                     <i class="zmdi zmdi-search"></i>
                 </li>
                 <li  class="tooltips-general btn-help" data-placement="bottom" title="Ayuda">

@@ -33,6 +33,12 @@ Class Usuario
             return ejecutarConsulta($sql);
         }
 
+        public function registrarUsuario($user,$contra,$cargo,$email,$idEmpleado)
+        {
+            $sql="call RegistrarUsuarios('$user', '$contra', $cargo, '$email', '$idEmpleado');";
+            
+            return ejecutarConsulta($sql);
+        }
 
 }
 ?>    

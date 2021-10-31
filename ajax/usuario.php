@@ -36,6 +36,28 @@ switch ($_GET["op"]){
  		echo json_encode($rspta);
 	break;
 
+	case 'guardar':
+		try {
+	
+			$email=isset($_POST["correo"])? limpiarCadena($_POST["correo"]):"";
+			$contra=isset($_POST["contra"])? limpiarCadena($_POST["contra"]):"";
+			$user=isset($_POST["user"])? limpiarCadena($_POST["user"]):"";
+			$cargo=isset($_POST["cargo"])? limpiarCadena($_POST["cargo"]):"";
+            $idusuario=isset($_POST["id"])? limpiarCadena($_POST["id"]):"";
+			$rspta=$usuario->registrarUsuario($user,$contra,$cargo,$email,$idusuario);
+			
+			$fetch=$rspta->fetch_object();
+	
+			//echo $rspta;
+	       echo json_encode($fetch,JSON_UNESCAPED_UNICODE);
+			
+			
+		
+		} catch (Exception $ex) {
+			echo $ex->getMessage();
+		 }
+		break;
+
 	case 'eliminar':
     $rspta=$usuario->eliminar($idusuario);
     echo $rspta ? "Usuario Eliminado" : "Usuario no se puede eliminar";

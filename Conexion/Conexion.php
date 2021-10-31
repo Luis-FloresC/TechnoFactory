@@ -1,7 +1,7 @@
 <?php 
 require_once "global.php";
-
-$conexion = new mysqli(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
+$host = $_SERVER['SERVER_NAME'];
+$conexion = new mysqli($host,DB_USERNAME,DB_PASSWORD,DB_NAME);
 
 mysqli_query( $conexion, 'SET NAMES "'.DB_ENCODE.'"');
 

@@ -103,6 +103,23 @@ $listaEmpleados = $AllEmpleados->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                 </form>
         </div>
+
+        <div class="panel-body table-responsive" id="listadoregistros">
+            <h2>Lista de Usuarios</h2>
+                        <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
+                          <thead>
+                           <th>#&nbsp;&nbsp;&nbsp;</th>
+                           <th>Nombre del Empleado &nbsp;&nbsp;&nbsp;</th>
+                           <th>Correo Electronico</th>
+                           <th>Usuario&nbsp;&nbsp;&nbsp;</th>
+                           <th>Cargo&nbsp;&nbsp;&nbsp;</th>
+                           <th>Acciones&nbsp;&nbsp;&nbsp;</th>
+
+                          </thead>
+                          <tbody>                            
+                          </tbody>
+                        </table>
+                    </div>
       </div><!-- /.content-wrapper -->
   <!--Fin-Contenido-->
 

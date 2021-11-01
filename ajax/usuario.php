@@ -5,7 +5,7 @@ require_once "../Clases/Usuario.php";
 
 $usuario=new Usuario();
 
-$idusuario=isset($_POST["id"])? limpiarCadena($_POST["id"]):"";
+$idusuario=isset($_POST["idusuario"])? limpiarCadena($_POST["idusuario"]):"";
 //$numero_trabajador=isset($_POST["numero_trabajador"])? limpiarCadena($_POST["numero_trabajador"]):"";
 //$dni=isset($_POST["dni"])? limpiarCadena($_POST["dni"]):"";
 $nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
@@ -64,23 +64,19 @@ switch ($_GET["op"]){
 
     break;
 
+	
 	case 'listar':
-		$rspta=$usuario->listar();
+		$rspta=$usuario->listarUser();
  		//Vamos a declarar un array
  		$data= Array();
  		while ($reg=$rspta->fetch_object()){
  			$data[]=array(
- 				"0"=>$reg->idusuario,
-        		"1"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"></i></button> <button class="btn btn-danger" onclick="eliminarFila('.$reg->idusuario.')"><i class="fa fa-trash"></button>',
- 				"2"=>$reg->numero_trabajador,
- 				"3"=>$reg->dni,
- 				"4"=>$reg->nombre,
- 				"5"=>$reg->profesion,
- 				"6"=>$reg->cargo,
- 				"7"=>$reg->direccion,
- 				"8"=>$reg->telefono,
- 				"9"=>$reg->email,
- 				"10"=>$reg->login
+ 				"0"=>$reg->num,
+        		"1"=>$reg->nombre,
+ 				"2"=>$reg->Email,
+ 				"3"=>$reg->user,
+ 				"4"=>$reg->cargo,
+ 				"5"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->idUsuario.')"><i class="fa fa-pencil"></i></button> <button class="btn btn-danger" onclick="eliminarFila('.$reg->idUsuario.')"><i class="fa fa-trash"></button>'
  				);
  		}
  		$results = array(

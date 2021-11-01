@@ -26,11 +26,25 @@ Class Usuario
             return ejecutarConsulta($sql);
         }
 
+
+        public function listarUser()
+        {
+            $sql="call bd_techno_factory.ListarUsuarios();";
+            
+            return ejecutarConsulta($sql);
+        }
+
         public function listarVentas()
         {
             $sql="call ListarVentas();";
             
             return ejecutarConsulta($sql);
+        }
+
+        public function mostrar($idusuario)
+        {
+            $sql="SELECT * FROM Usuarios WHERE idUsuario='$idusuario'";
+            return ejecutarConsultaSimpleFila($sql);
         }
 
         public function registrarUsuario($user,$contra,$cargo,$email,$idEmpleado)

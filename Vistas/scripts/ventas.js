@@ -352,12 +352,17 @@ $(document).ready(function(){
         
             
            
-            swal("Venta Realizada con Éxito!", {
-              icon: "success",
+            bootbox.confirm("Venta realizada con éxito...", function(result)
+            { // confirmamos con una pregunta si queremos eliminar
+                if(result)
+                {
+                    location.reload();
+                }
+                else
+                {
+                  location.reload();
+                }
             })
-            .then((value) => {
-              $(location).attr("href","ventas.php");
-            });
             //alert("Venta Realizada con exito...");
         
            

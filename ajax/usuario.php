@@ -35,10 +35,11 @@ switch ($_GET["op"]){
  		//Codificar el resultado utilizando json
  		echo json_encode($rspta);
 	break;
-
+//la opcion que mandemos en el archivo scripts
 	case 'guardar':
 		try {
 	
+			//Asgnacion de variables
 			$email=isset($_POST["correo"])? limpiarCadena($_POST["correo"]):"";
 			$contra=isset($_POST["contra"])? limpiarCadena($_POST["contra"]):"";
 			$user=isset($_POST["user"])? limpiarCadena($_POST["user"]):"";

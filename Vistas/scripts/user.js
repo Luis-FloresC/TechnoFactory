@@ -7,17 +7,18 @@ function init(){
 
 }
 
+//Funcion para limpiar los campos del formulario
 function limpiar()
 {
 	$("#id").val("");
 	$("#txtUser").val("");
 	$("#txtContra").val("");
 	$("#txtEmail").val("");
-    $("txtEmpleado").val("1");
-    $("txtCargo").val("1");
+    $("#txtEmpleado").val("1");
+    $("#txtCargo").val("1");
 }
 
-
+//Evento submit al momento de presionar click al boton de guardar y modificar
 $("#frmRegistrar").on('submit',function(e)
 {
     e.preventDefault();
@@ -33,7 +34,7 @@ $("#frmRegistrar").on('submit',function(e)
     
   
  
-        var resul =""
+        
         //se configura el metodo post y se envia una opcion la cual es guardar
         $.post("../ajax/usuario.php?op=guardar",
             {"id":txtEmpleado,"user":txtUser,"contra":txtContra,"correo":txtEmail,"cargo":txtCargo,"idUser":txtId},
@@ -41,7 +42,7 @@ $("#frmRegistrar").on('submit',function(e)
         {
             var info = JSON.parse(data);
             
-            resul = info.msj;
+          
 
             bootbox.confirm(info.msj, function(result)
             { // confirmamos con una pregunta si queremos eliminar

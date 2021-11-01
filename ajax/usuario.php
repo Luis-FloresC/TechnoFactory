@@ -44,12 +44,27 @@ switch ($_GET["op"]){
 			$user=isset($_POST["user"])? limpiarCadena($_POST["user"]):"";
 			$cargo=isset($_POST["cargo"])? limpiarCadena($_POST["cargo"]):"";
             $idusuario=isset($_POST["id"])? limpiarCadena($_POST["id"]):"";
-			$rspta=$usuario->registrarUsuario($user,$contra,$cargo,$email,$idusuario);
+			$id = isset($_POST["idUser"])? limpiarCadena($_POST["idUser"]):"";
+
+			if(empty($id))
+			{
+				$rspta=$usuario->registrarUsuario($user,$contra,$cargo,$email,$idusuario);
 			
-			$fetch=$rspta->fetch_object();
-	
-			//echo $rspta;
-	       echo json_encode($fetch,JSON_UNESCAPED_UNICODE);
+				$fetch=$rspta->fetch_object();
+		
+				//echo $rspta;
+			   echo json_encode($fetch,JSON_UNESCAPED_UNICODE);
+			}
+			else
+			{
+				$rspta=$usuario->editarUsuario($id,$user,$contra,$cargo,$email,$idusuario);
+			
+				$fetch=$rspta->fetch_object();
+		
+				//echo $rspta;
+			   echo json_encode($fetch,JSON_UNESCAPED_UNICODE);
+			}
+
 			
 			
 		

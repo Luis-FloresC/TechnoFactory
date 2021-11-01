@@ -7,6 +7,16 @@ function init(){
 
 }
 
+function limpiar()
+{
+	$("#id").val("");
+	$("#txtUser").val("");
+	$("#txtContra").val("");
+	$("#txtEmail").val("");
+    $("txtEmpleado").val("1");
+    $("txtCargo").val("1");
+}
+
 
 $("#frmRegistrar").on('submit',function(e)
 {
@@ -16,33 +26,43 @@ $("#frmRegistrar").on('submit',function(e)
     txtContra=$("#txtContra").val();
     txtEmail= $("#txtEmail").val();
     txtCargo = $("#txtCargo").val();
+    txtId = $("#id").val();
     txtEmpleado = $("#txtEmpleado").val();
-    var resul =""
-    //se configura el metodo post y se envia una opcion la cual es guardar
-    $.post("../ajax/usuario.php?op=guardar",
-        {"id":txtEmpleado,"user":txtUser,"contra":txtContra,"correo":txtEmail,"cargo":txtCargo},
-        function(data)
-    {
-        var info = JSON.parse(data);
-        
-        resul = info.msj;
-        if(info.msj == "Usuario Registrado con éxito")
+    accion = $("#btnAccion").val();
+   
+    
+  
+ 
+        var resul =""
+        //se configura el metodo post y se envia una opcion la cual es guardar
+        $.post("../ajax/usuario.php?op=guardar",
+            {"id":txtEmpleado,"user":txtUser,"contra":txtContra,"correo":txtEmail,"cargo":txtCargo,"idUser":txtId},
+            function(data)
         {
-            swal(info.msj, {
-                icon: "success",
-              })
-              .then((value) => {
-                location.reload();
-              });
-        }
-         else
-        {
-            bootbox.alert(info.msj);
-        }
+            var info = JSON.parse(data);
+            
+            resul = info.msj;
 
-       // bootbox.alert(info.msj);
-       // location.reload();
-    });
+            bootbox.confirm(info.msj, function(result)
+            { // confirmamos con una pregunta si queremos eliminar
+                if(result)
+                {
+                    location.reload();
+                }
+                else
+                {
+                    limpiar();
+                }
+            })
+
+    
+           // bootbox.alert(info.msj);
+           // location.reload();
+        });
+
+  
+
+ 
     
 })
 
@@ -53,7 +73,7 @@ function mostrar(idusuario)
 		data = JSON.parse(data);		
 	
         
-
+        $("#id").val(data.idUsuario);
 		$("#txtUser").val(data.nombreUsuario);
 		$("#txtContra").val(data.contrasenia);
 		$("#txtEmail").val(data.correoElectronico);

@@ -49,6 +49,7 @@ $listaEmpleados = $AllEmpleados->fetchAll(PDO::FETCH_ASSOC);
                 <form autocomplete="off" id="frmRegistrar" name="frmRegistrar" method="post">
                     <div class="row">
                        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                           <input type="hidden" name="id" id="id">
                             <div class="group-material">
                                 <input type="text" name="txtUser" id="txtUser" class="material-control tooltips-general" placeholder="Escribe aquí el nombre de usuario del empleado" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,50}" required="" maxlength="50" data-toggle="tooltip" data-placement="top" title="Solamente se permiten letras">
                                 <span class="highlight"></span>
@@ -97,7 +98,8 @@ $listaEmpleados = $AllEmpleados->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <p class="text-center">
                                 <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
-                                <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
+                                <button type="submit" name="btnAccion" id="btnAccion" value="guardar" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>  &nbsp;&nbsp; &nbsp;&nbsp;
+                                <button type="submit" name="btnAccion" id="btnAccion" value="Modificar" class="btn btn-warning"><i class="zmdi zmdi-edit"></i> &nbsp;&nbsp; Modificar</button>
                             </p> 
                         </div>
                     </div>

@@ -63,5 +63,12 @@ Class Usuario
             return ejecutarConsulta($sql);
         }
 
+        public function editarUsuario($id,$user,$contra,$cargo,$email,$idEmpleado)
+        {
+            $sql="call EditarUsuario('$id','$user', '$contra', $cargo, '$email', '$idEmpleado');";
+            
+            return ejecutarConsulta($sql);
+        }
+
 }
 ?>    

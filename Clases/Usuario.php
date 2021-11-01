@@ -19,7 +19,12 @@ Class Usuario
             return ejecutarConsulta($sql);
         }
 
-
+        public function listarEmpleados()
+        {
+            $sql="call ListarEmpleados();";
+            
+            return ejecutarConsulta($sql);
+        }
 
 }
 ?>    

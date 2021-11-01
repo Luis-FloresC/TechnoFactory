@@ -1,40 +1,144 @@
-$('#add_product_venta').click(function(e) {
+var tabla;
+
+//Función que se ejecuta al inicio
+function init(){
+	
+	listar();
+
+}
+
+//Funcion para limpiar los campos del formulario
+function limpiar()
+{
+  $("#id").val("");
+	$("#dni").val("");
+	$("#nombreEmpleado").val("");
+	$("#apellidoEmpleado").val("");
+	$("#estado").val("1");
+  $("#genero").val("Masculino");
+  $("#fechaNacimiento").val("");
+}
+
+//Evento submit al momento de presionar click al boton de guardar y modificar
+$("#frmRegistrar").on('submit',function(e)
+{
     e.preventDefault();
-    if ($('#txt_cant_producto').val() > 0) {
-      var codproducto = $('#txt_cod_producto').val();
-      var cantidad = $('#txt_cant_producto').val();
-      var action = 'addProductoDetalle';
-      $.ajax({
-        url: '../ajax/ventas.php',
-        type: 'POST',
-        async: true,
-        data: {action:action,producto:codproducto,cantidad:cantidad},
-        success: function(response) {
+    // se obtiene el valor de los campos y se envia al archivo de Usuuario.php de la carpeta ajax
+    txtid=$("#id").val();
+    txtdni=$("#dni").val();
+    txtnombre=$("#nombreEmpleado").val();
+    txtapellido= $("#apellidoEmpleado").val();
+    txtgenero= $("#genero").val();
+    txtestado = $("#estado").val();
+    txtfecha = $("#fechaNacimiento").val();
+   
+        
+        //se configura el metodo post y se envia una opcion la cual es guardar
+        $.post("../ajax/empleado.php?op=guardar",
+            {"id":txtid, "dni":txtdni,"nombre":txtnombre,"apellido":txtapellido,"genero":txtgenero,"estado":txtestado,"fecha":txtfecha},
+            function(data)
+        {
+            var info = JSON.parse(data);
+            
           
-          if (response != 'error') {
-            var info = JSON.parse(response);
-            $('#detalle_venta').html(info.detalle);
-            $('#detalle_totales').html(info.totales);
-            $('#txt_cod_producto').val('');
-            $('#txt_descripcion').html('-');
-            $('#txt_existencia').html('-');
-            $('#txt_cant_producto').val('0');
-            $('#txt_precio').html('0.00');
-            $('#txt_precio_total').html('0.00');
+
+            bootbox.confirm(info.msj, function(result)
+            { // confirmamos con una pregunta si queremos eliminar
+                if(result)
+                {
+                    location.reload();
+                }
+                else
+                {
+                    limpiar();
+                }
+            })
+
+    
+           // bootbox.alert(info.msj);
+           // location.reload();
+        });
+
   
-            // Bloquear cantidad
-            $('#txt_cant_producto').attr('disabled','disabled');
-  
-            // Ocultar boton agregar
-            $('#add_product_venta').slideUp();
-          }else {
-            console.log('No hay dato');
-          }
-          viewProcesar();
+
+ 
+    
+})
+
+function mostrar(idusuario)
+{
+	$.post("../ajax/usuario.php?op=mostrar",{idusuario : idusuario}, function(data, status)
+	{
+		data = JSON.parse(data);		
+	
+        
+        $("#id").val(data.idUsuario);
+		$("#txtUser").val(data.nombreUsuario);
+		$("#txtContra").val(data.contrasenia);
+		$("#txtEmail").val(data.correoElectronico);
+		$("#txtCargo").val(data.idCargo);
+		$("#txtEmpleado").val(data.idEmpleado);
+	
+
+ 	})
+}
+
+
+
+function listar()
+{
+	tabla=$('#tbllistado').dataTable(
+	{
+		"lengthMenu": [ 5, 10, 25, 75, 100],//mostramos el menú de registros a revisar
+		"aProcessing": true,//Activamos el procesamiento del datatables
+	    "aServerSide": true,//Paginación y filtrado realizados por el servidor
+	    dom: '<Bl<f>rtip>',//Definimos los elementos del control de tabla
+	    buttons: [		          
+		            'copyHtml5',
+		            'excelHtml5',
+		            'csvHtml5',
+		            'pdf'
+		        ],
+		"ajax":
+				{
+					url: '../ajax/usuario.php?op=listar',
+					type : "get",
+					dataType : "json",						
+					error: function(e){
+						console.log(e.responseText);	
+					}
+				},
+		"language": {
+            "lengthMenu": "Mostrar : _MENU_ registros",
+            "buttons": {
+            "copyTitle": "Tabla Copiada",
+            "copySuccess": {
+                    _: '%d líneas copiadas',
+                    1: '1 línea copiada'
+                }
+            }
         },
-        error: function(error) {
-  
+		"bDestroy": true,
+		"iDisplayLength": 5,//Paginación
+	    "order": [[ 0, "desc" ]]//Ordenar (columna,orden)
+	}).DataTable();
+}
+
+
+function eliminarFila(idusuario)
+{
+	bootbox.confirm("¿Está Seguro de eliminar el Usuario?", function(result)
+	{ // confirmamos con una pregunta si queremos eliminar
+        if(result)
+        {
+            $.post("../ajax/usuario.php?op=eliminar", {idusuario : idusuario}, function(e)
+            {
+	            bootbox.alert(e);
+	            tabla.ajax.reload();
+            });
         }
-      });
-    }
-  });
+        
+    })
+}
+
+init();

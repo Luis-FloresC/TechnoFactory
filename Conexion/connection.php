@@ -11,7 +11,7 @@ $contra = "Jamart1590@";
 
 
 //try {
-    $conexion = new mysqli_connect("mysql:host=$host;dbname=$bd",$user,$contra);
+    $conexion = new mysqli_connect("mysql:host=$host;bd_techno_factory=$bd",$user,$contra);
    if($conexion)
     {
         $var = "Conexion exitosa con la base de Datos $bd";

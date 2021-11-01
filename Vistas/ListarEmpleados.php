@@ -1,5 +1,5 @@
 <?php
-
+/*
 include ('./Conexion/connection.php');
 //print_r($_POST);
 //recibir datos metodo post
@@ -22,7 +22,7 @@ mysqli_close($conexion);
 
 
 
-
+*/
 
 ?>
 

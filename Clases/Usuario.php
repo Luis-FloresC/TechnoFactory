@@ -41,6 +41,15 @@ Class Usuario
             return ejecutarConsulta($sql);
         }
 
+ 
+        public function eliminar($idusuario)
+        {
+            $sql ="DELETE FROM Usuarios
+            WHERE idUsuario='$idusuario'";
+            return ejecutarConsulta($sql);
+        }
+
+
         public function mostrar($idusuario)
         {
             $sql="SELECT * FROM Usuarios WHERE idUsuario='$idusuario'";

@@ -60,7 +60,7 @@ switch ($_GET["op"]){
 
 	case 'eliminar':
     $rspta=$usuario->eliminar($idusuario);
-    echo $rspta ? "Usuario Eliminado" : "Usuario no se puede eliminar";
+    echo $rspta ? "Usuario Eliminado con éxito" : "Lo sentimos,El usuario no se pudo eliminar";
 
     break;
 

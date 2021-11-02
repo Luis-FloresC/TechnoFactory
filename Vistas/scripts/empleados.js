@@ -26,22 +26,22 @@ $("#frmRegistrar").on('submit',function(e)
     e.preventDefault();
     // se obtiene el valor de los campos y se envia al archivo de Usuuario.php de la carpeta ajax
    var txtId= $("#id").val();
+   var txtDNI=$("#dni").val();
    var txtNombre=$("#nombreEmpleado").val();
    var txtApellido=$("#apellidoEmpleado").val();
-   var txtDNI=$("#dni").val();
    var txtFecha=$("#fechaNacimiento").val();
-    
    var txtEstado=$("#estado").val();
    var txtGenero=$("#txtGenero").val();
    
         //se configura el metodo post y se envia una opcion la cual es guardar
         $.post("../ajax/empleado.php?op=guardar",
             {"id":txtId,"dni":txtDNI,"nombre":txtNombre,"apellido":txtApellido,"gen":txtGenero,"estado":txtEstado,"fecha":txtFecha},
-            function(data)
+         function(data)
         {
-            var info = JSON.parse(data);
             
-        //  alert(info.msj);
+    // var info = JSON.parse(data);
+            
+      // alert(info.msj);
 
             bootbox.confirm(info.msj, function(result)
             { // confirmamos con una pregunta si queremos eliminar
@@ -66,7 +66,7 @@ $("#frmRegistrar").on('submit',function(e)
     
 })
 
-function mostrar(idusuario)
+function mostrar(idEmpleado)
 {
 	$.post("../ajax/empleado.php?op=mostrar",{id : idusuario}, function(data, status)
 	{

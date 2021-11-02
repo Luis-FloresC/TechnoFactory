@@ -34,14 +34,16 @@ switch ($_GET["op"]){
 			$fecha=isset($_POST["fecha"])? limpiarCadena($_POST["fecha"]):"";
 			$estado=isset($_POST["estado"])? limpiarCadena($_POST["estado"]):"";
 
-			if(empty($id))
+			if(empty($idEmpleado))
 			{
 				$rspta=$empleado->registrarEmpleado($idEmpleado,$dni,$nombre,$apellido,$genero,$fecha,$estado);
 			
 				$fetch=$rspta->fetch_object();
 		
-				//echo $rspta;
-			   echo json_encode($fetch,JSON_UNESCAPED_UNICODE);
+				
+			//echo $rspta;
+		
+			echo json_encode($fetch,JSON_UNESCAPED_UNICODE);
 			}
 			else
 			{

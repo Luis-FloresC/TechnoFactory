@@ -50,5 +50,17 @@
             <div class="footer-copyright full-reset all-tittles">© <?php $Year = date("Y"); echo $Year; ?> Grupo 6 - Portales web 2</div>
         </footer>
     </div>
+    <script src="../Public/js/bootbox.min.js"></script> 
+    <script src="../Public/datatables/jquery.dataTables.min.js"></script>    
+    <script src="../Public/datatables/dataTables.buttons.min.js"></script>
+    <script src="../Public/datatables/buttons.html5.min.js"></script>
+    <script src="../Public/datatables/buttons.colVis.min.js"></script>
+    <script src="../Public/datatables/jszip.min.js"></script>
+    <script src="../Public/datatables/pdfmake.min.js"></script>
+    <script src="../Public/datatables/vfs_fonts.js"></script> 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../Public/js/bootbox.min.js"></script> 
+    <script src="../Public/js/bootstrap-select.min.js"></script>
+
 </body>
 </html>

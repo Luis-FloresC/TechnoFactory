@@ -21,10 +21,14 @@ Class Empleado
 
         public function listar()
         {
-            $sql="call ListarProductos();";
+            $sql="SELECT idEmpleado as id,dni,concat(nombreEmpleado,' ',apellidoEmpleado) 'nombre' ,
+            genero ,TIMESTAMPDIFF(YEAR,fechaNacimiento,CURDATE()) 'Edad', idEstado 'estado'
+            FROM bd_techno_factory.Empleados;";
             
             return ejecutarConsulta($sql);
         }
+
+     
 
 
         public function listarUser()
@@ -50,9 +54,9 @@ Class Empleado
         }
 
 
-        public function mostrar($idusuario)
+        public function mostrar($id)
         {
-            $sql="SELECT * FROM Usuarios WHERE idUsuario='$idusuario'";
+            $sql="SELECT * FROM Empleados WHERE idEmpleado='$id'";
             return ejecutarConsultaSimpleFila($sql);
         }
 
@@ -69,9 +73,10 @@ Class Empleado
             
             return ejecutarConsulta($sql);
         }
-        public function registrarEmpleado($id,$accion,$dni,$nombre,$apellido,$genero,$fecha,$estado)
+
+        public function registrarEmpleado($id,$dni,$nombre,$apellido,$genero,$fecha,$estado)
         {
-            $sql="call AccionesEmpleados('$id','$accion','$dni','$nombre','$apellido','$genero','$fecha','$estado');";
+            $sql="call bd_techno_factory.AccionesEmpleados('$id', 'G', '$dni', '$nombre', '$apellido', '$genero', '$fecha', '$estado');";
             
             return ejecutarConsulta($sql);
         }

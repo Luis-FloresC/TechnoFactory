@@ -10,13 +10,14 @@ function init(){
 //Funcion para limpiar los campos del formulario
 function limpiar()
 {
-  $("#id").val("");
-	$("#dni").val("");
+	$("#id").val("");
 	$("#nombreEmpleado").val("");
 	$("#apellidoEmpleado").val("");
-	$("#estado").val("1");
-  $("#genero").val("Masculino");
-  $("#fechaNacimiento").val("");
+	$("#dni").val("");
+    $("#fechaNacimiento").val("");
+    
+    $("#estado").val("1");
+    $("#txtGenero").val("Masculino");
 }
 
 //Evento submit al momento de presionar click al boton de guardar y modificar
@@ -24,23 +25,23 @@ $("#frmRegistrar").on('submit',function(e)
 {
     e.preventDefault();
     // se obtiene el valor de los campos y se envia al archivo de Usuuario.php de la carpeta ajax
-    txtid=$("#id").val();
-    txtdni=$("#dni").val();
-    txtnombre=$("#nombreEmpleado").val();
-    txtapellido= $("#apellidoEmpleado").val();
-    txtgenero= $("#genero").val();
-    txtestado = $("#estado").val();
-    txtfecha = $("#fechaNacimiento").val();
+   var txtId= $("#id").val();
+   var txtNombre=$("#nombreEmpleado").val();
+   var txtApellido=$("#apellidoEmpleado").val();
+   var txtDNI=$("#dni").val();
+   var txtFecha=$("#fechaNacimiento").val();
+    
+   var txtEstado=$("#estado").val();
+   var txtGenero=$("#txtGenero").val();
    
-        
         //se configura el metodo post y se envia una opcion la cual es guardar
         $.post("../ajax/empleado.php?op=guardar",
-            {"id":txtid, "dni":txtdni,"nombre":txtnombre,"apellido":txtapellido,"genero":txtgenero,"estado":txtestado,"fecha":txtfecha},
+            {"id":txtId,"dni":txtDNI,"nombre":txtNombre,"apellido":txtApellido,"gen":txtGenero,"estado":txtEstado,"fecha":txtFecha},
             function(data)
         {
             var info = JSON.parse(data);
             
-          
+        //  alert(info.msj);
 
             bootbox.confirm(info.msj, function(result)
             { // confirmamos con una pregunta si queremos eliminar
@@ -67,17 +68,19 @@ $("#frmRegistrar").on('submit',function(e)
 
 function mostrar(idusuario)
 {
-	$.post("../ajax/usuario.php?op=mostrar",{idusuario : idusuario}, function(data, status)
+	$.post("../ajax/empleado.php?op=mostrar",{id : idusuario}, function(data, status)
 	{
 		data = JSON.parse(data);		
 	
         
-        $("#id").val(data.idUsuario);
-		$("#txtUser").val(data.nombreUsuario);
-		$("#txtContra").val(data.contrasenia);
-		$("#txtEmail").val(data.correoElectronico);
-		$("#txtCargo").val(data.idCargo);
-		$("#txtEmpleado").val(data.idEmpleado);
+		$("#id").val(data.idEmpleado);
+		$("#nombreEmpleado").val(data.nombreEmpleado);
+		$("#apellidoEmpleado").val(data.apellidoEmpleado);
+		$("#dni").val(data.dni);
+		$("#fechaNacimiento").val(data.fechaNacimiento);
+		
+		$("#estado").val(data.idEstado);
+		$("#txtGenero").val(data.genero);
 	
 
  	})
@@ -101,7 +104,7 @@ function listar()
 		        ],
 		"ajax":
 				{
-					url: '../ajax/usuario.php?op=listar',
+					url: '../ajax/empleado.php?op=listar',
 					type : "get",
 					dataType : "json",						
 					error: function(e){

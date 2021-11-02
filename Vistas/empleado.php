@@ -4,7 +4,7 @@
    session_start();
    //Evaluamos si el usuario ha iniciado sesión si no está vacia la variables de sesión
    //nombre indica que el usuario ha iniciado sesión
-   if (!isset($_SESSION["nombre"]))
+   if (isset($_SESSION["nombre"]))
    {
      header("Location: ../index.php");
    }
@@ -14,6 +14,7 @@
    require '../template/header.php';
 
    ?>
+
    <!--Contenido-->
          <!-- Content Wrapper. Contains page content -->
          <div class="container">

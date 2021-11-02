@@ -80,7 +80,7 @@
                             <li><a href="#"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Categorias</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="zmdi zmdi-laptop-mac zmdi-hc-fw"></i>&nbsp;&nbsp; Productos</a></li>
+                    <li><a href="../Vistas/producto.php"><i class="zmdi zmdi-laptop-mac zmdi-hc-fw"></i>&nbsp;&nbsp; Productos</a></li>
                  
                 </ul>
             </div>

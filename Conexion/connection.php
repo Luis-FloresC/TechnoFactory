@@ -5,9 +5,9 @@ $host = $_SERVER['SERVER_NAME'];
 ///Base de Datos mysql
 $bd = "bd_techno_factory";
 //User
-$user = "gemart";
+$user = "jvarela";
 //Contraseña
-$contra = "Jamart1590@";
+$contra = "Varela1234@";
 
 try {
     $conexion = new PDO("mysql:host=$host;dbname=$bd",$user,$contra);

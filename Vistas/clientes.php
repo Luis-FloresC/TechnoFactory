@@ -54,7 +54,11 @@ require_once '../template/header.php';
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Genero</label>
-                                    <input type="text" name="gen_cliente" id="gen_cliente" class="form-control" >
+                                    <select name="gen_cliente" id="gen_cliente" class="form-control">
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
+                                    </select>
+       
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -63,7 +67,20 @@ require_once '../template/header.php';
                                     <input type="date" name="fechnac_cliente" id="fechnac_cliente" class="form-control" >
                                 </div>
                             </div>
-                                <a href="#" class="btn btn-primary" id="btn_crear_cliente1"><i class="zmdi zmdi-face"></i>  Crear Cliente</a>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label>Estado</label>
+                                    <select name="estado" id="estado" class="form-control">
+                                        <option value="1">Habilitado</option>
+                                        <option value="2">Inhabilitado</option>
+                                    </select>
+       
+                                </div>
+                            </div>
+                            <p class="text-center">
+                            <a href="#" class="btn btn-primary" id="btn_crear_cliente1"><i class="zmdi zmdi-face"></i> Guardar Cliente</a>
+                            </p>
+                               
                         </div>
                     </form>
                 </div>
@@ -81,7 +98,7 @@ require '../template/footer.php';
  <!-- Begin Page Content -->
 
 
-<script type="text/javascript" src="scripts/Clientes.js"></script>
+<script type="text/javascript" src="scripts/clientes.js"></script>
 
 <?php 
 }

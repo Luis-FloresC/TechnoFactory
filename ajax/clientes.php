@@ -1,24 +1,21 @@
 <?php
 // registrar cliente = ventas
-include("../Conexion/Conexion.php");
+include("../Clases/Clientes.php");
+$clientes = new Clientes();
 if ($_POST['action'] == 'addCliente') {
-  print_r('dfssdfasfdgasdf');
+ 
   $dni = $_POST['dni'];
   $nombre = $_POST['nombre'];
   $apellido = $_POST['apellido'];
   $genero = $_POST['genero'];
+  $estado = $_POST['estado'];
   $fechaNacimiento = $_POST['fechaNacimiento'];
-
-  $query_insert = mysqli_query($conexion, "INSERT INTO clientes(dni, nombreCliente, apellidoCliente, genero, fechaNacimiento,fechaRegistro,idEstado) VALUES ('$dni','$nombre','$apellido','$genero','$fechaNacimiento','2021-02-02 12:00:00',1)");
+  $rspta=$clientes->RegistrarCliente($dni,$nombre,$apellido,$genero,$fechaNacimiento,$estado);
+	    
+  $fetch=$rspta->fetch_object();
   
-    if ($query_insert) {
-      //$codCliente = mysqli_insert_id($conexion);
-      $msg = 'funco';
-    }else {
-      $msg = 'error';
-    }
-  mysqli_close($conexion);
-  echo $msg;
+  echo json_encode($fetch);
+  
   exit;
 }
 

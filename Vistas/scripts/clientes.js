@@ -18,6 +18,7 @@ $(document).ready(function(){
     e.preventDefault();
     var action = 'addCliente';
     var dni = $('#dni_cliente').val();
+    var estado = $('#estado').val();
     var nombre = $('#nom_cliente').val();
     var apellido = $('#ape_cliente').val();
     var genero = $('#gen_cliente').val();
@@ -26,34 +27,21 @@ $(document).ready(function(){
       url: '../ajax/clientes.php',
       type: 'POST',
       async: true,
-      data: {action:action,dni:dni,nombre:nombre,apellido:apellido,genero:genero,fechaNacimiento:fechaNacimiento},
+      data: {action:action,dni:dni,nombre:nombre,apellido:apellido,genero:genero,fechaNacimiento:fechaNacimiento,estado:estado},
       success: function(response) {
-      if (response != 0) {
-        try {
-          //var info = JSON.parse(response);
-          swal(" Cliente Fuardado con Éxito! ", {
-            icon: "success",
-          })
-          .then((value) => {
-            $(location).attr("href","clientes.php");
-          });
-          console.log(response);
-        }
-        catch(err) {
-          swal("Error al guardar cliente ", {
-            icon: "error",
-          })
-          .then((value) => {
-            $(location).attr("href","clientes.php");
-          });
-          console.log(err);
-          //alert("Venta Realizada con exito...");
-
-        }
-          
-      }else {
-        console.log('no hay datos');
-      }
+        
+        var info = JSON.parse(response);
+        bootbox.confirm(info.msj, function(result)
+        { // confirmamos con una pregunta si queremos eliminar
+            if(result)
+            {
+                location.reload();
+            }
+            else
+            { 
+              location.reload();
+            }
+        })
       },
       error: function(error) {
         // location.reload();

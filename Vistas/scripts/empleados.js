@@ -38,11 +38,11 @@ $("#frmRegistrar").on('submit',function(e)
             {"id":txtId,"dni":txtDNI,"nombre":txtNombre,"apellido":txtApellido,"gen":txtGenero,"estado":txtEstado,"fecha":txtFecha},
          function(data)
         {
-            
-    // var info = JSON.parse(data);
+            //El resultado del proceso almacenado lo convierte en texto
+        var info = JSON.parse(data);
             
       // alert(info.msj);
-
+//Muestra ventana modal
             bootbox.confirm(info.msj, function(result)
             { // confirmamos con una pregunta si queremos eliminar
                 if(result)
@@ -68,7 +68,7 @@ $("#frmRegistrar").on('submit',function(e)
 
 function mostrar(idEmpleado)
 {
-	$.post("../ajax/empleado.php?op=mostrar",{id : idusuario}, function(data, status)
+	$.post("../ajax/empleado.php?op=mostrar",{id : idEmpleado}, function(data, status)
 	{
 		data = JSON.parse(data);		
 	

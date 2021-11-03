@@ -9,8 +9,8 @@ $user = "gemart";
 //Contraseña
 $contra = "Jamart1590@";
 
-
-//try {
+//descomentado del try
+try {
     $conexion = new mysqli_connect("mysql:host=$host;bd_techno_factory=$bd",$user,$contra);
    if($conexion)
     {
@@ -20,6 +20,12 @@ $contra = "Jamart1590@";
    
 } catch (Exception $ex) {
    echo $ex->getMessage();
-}
-?>
+   //en comparacion al otro modulo faltaban estas partes
+   exit;//agregado
+    }
 
+return $conexion;//agragado
+}
+
+
+?>

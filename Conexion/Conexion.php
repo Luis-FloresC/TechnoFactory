@@ -1,6 +1,6 @@
 <?php 
 require_once "global.php";
-
+$host = $_SERVER['SERVER_NAME']; //faltaba esta linea comprarando el otro modulo
 $conexion = new mysqli($host,DB_USERNAME,DB_PASSWORD,DB_NAME);
 mysqli_query( $conexion, 'SET NAMES "'.DB_ENCODE.'"');
 

@@ -8,54 +8,82 @@ include('../template/header.php');
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <div class="container mtf-5">
-        
-        <form class="row g-3">
-            <div class="col-lg-6">
-                <label for="idproducto" class="form-label">Codigo</label>
-                <input type="text" class="form-control" id="idproducto" required>
-            </div>
-            <div class="col-lg-6">
-                <label for="nombreproducto" class="form-label">Producto</label>
-                <input type="text" class="form-control" id="nombreproducto" required>
-            </div>
-            <div class="col-lg-6">
-                <label for="descripcion" class="form-label">Descripcion</label>
-                <input type="text" class="form-control" id="descripcion" required>
-            </div>
+    <div class="container-fluid">
 
-            <div class="col-lg-6">
-                <label for="cantidadexistente" class="form-label">Stock</label>
-                <input type="text" class="form-control" id="cantidadexistente" required>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <h4 class="text-center">Producto</h4>
             </div>
-            <div class="col-md-4">
-                <label for="idcategoria" class="form-label">Categoria</label>
-                <input type="text" class="form-control" id="idcategoria" required>
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" name="form_new_producto" id="form_new_producto">
+                        <div class="row">
+                        <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label>Codigo</label>
+                                    <input type="text" name="idproducto" id="idproducto" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label>Producto</label>
+                                    <input type="text" name="nombreproducto" id="nombreproducto" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label>Descripcion</label>
+                                    <input type="text" name="descripcionproducto" id="descripcionproducto" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label>Cantidad</label>
+                                    <input type="text" name="cantidadexistencia" id="cantidadexistencia" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label>Categoria</label>
+                                    <input type="text" name="idcategoria" id="idcategoria" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label>Estado</label>
+                                    <input type="text" name="idestado" id="idestado" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label>Precio Estandar</label>
+                                    <input type="text" name="precioestandar" id="precioestandar" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label>Precio Venta</label>
+                                    <input type="text" name="precioventa" id="precioventa" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label>Modelo</label>
+                                    <input type="text" name="idmodelo" id="idmodelo" class="form-control" >
+                                </div>
+                                </div>
+                                <a href="#" class="btn btn-primary" id="btn_crear_producto"><i class="bi bi-bag"></i>Agregar producto</a>
+                                </div>
+                    </form>
+                </div>
             </div>
-            <div class="col-md-4">
-                <label for="idestado" class="form-label">Estado</label>
-                <input type="text" class="form-control" id="idestado" required>
-            </div> 
-            <div class="col-md-4">
-                <label for="idmodelo" class="form-label">Modelo</label>
-                <input type="text" class="form-control" id="idmodelo" required>
-            </div>           
-            <div class="col-md-4">
-                <label for="precioventa" class="form-label">Precio Venta</label>
-                <input type="text" class="form-control" id="precioventa" required>
-            </div>
-            <div class="col-md-4">
-                <label for="precioestandar" class="form-label">Precio Estandar</label>
-                <input type="text" class="form-control" id="precioestandar" required>
-            </div>    
-            <div class="mb-3">
-                <button type="sumit" class="btn btn-dark" name="btnGuardar" value='submit'>Guardar</button>
-                <button type="reset" class="btn btn-dark">Limpiar</button>
-            </div>
-    </form>
+        </div>
     </div>
 
- 
+</div>
+
+<script type="text/javascript" src="scripts/producto.js"></script>
 
 
 <?php include('../template/footer.php'); ?>

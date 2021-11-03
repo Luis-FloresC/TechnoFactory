@@ -2,7 +2,7 @@
 
 $host = $_SERVER['SERVER_NAME'];
 //Ip de la pc servidor de base de datos
-define("DB_HOST","192.168.1.15");
+define("DB_HOST","192.168.1.14");
 
 //Nombre de la base de datos
 define("DB_NAME", "bd_techno_factory");

@@ -3,23 +3,32 @@
 <html lang="es">
 <head>
     <title>Inicio</title>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="Shortcut Icon" type="image/x-icon" href="../Public/assets/icons/book.ico" />
-    <script src="../Public/js/sweet-alert.min.js"></script>
-    <link rel="stylesheet" href="../Public/css/sweet-alert.css">
-    <link rel="stylesheet" href="../Public/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="../Public/css/normalize.css">
-    <link rel="stylesheet" href="../Public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../Public/css/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" href="../Public/css/style.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
-    <script src="../Public/js/modernizr.js"></script>
-    <script src="../Public/js/bootstrap.min.js"></script>
-    <script src = "https://code.iconify.design/2/2.0.3/iconify.min.js"> </script>
-    <script src="../Public/js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="../Public/js/main.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Shortcut Icon" type="image/x-icon" href="../Public/assets/icons/book.ico" />
+<script src="../Public/js/sweet-alert.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="../Public/css/sweet-alert.css"> 
+<link rel="stylesheet" href="../Public/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" href="../Public/css/normalize.css">
+<link rel="stylesheet" href="../Public/css/bootstrap.min.css">
+<link rel="stylesheet" href="../Public/css/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" href="../Public/css/style.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="../Public/js/modernizr.js"></script>
+<script src="../Public/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../Public/datatables/jquery.dataTables.min.css">    
+<link href="../Public/datatables/buttons.dataTables.min.css" rel="stylesheet"/>
+<link href="../Public/datatables/responsive.dataTables.min.css" rel="stylesheet"/>
+<script src = "https://code.iconify.design/2/2.0.3/iconify.min.js"> </script>
+<script src="../Public/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="../Public/js/main.js"></script>
+
 </head>
 <body>
     <div class="navbar-lateral full-reset">

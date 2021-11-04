@@ -175,7 +175,12 @@ function init(){
 
           if(info.msj == "Producto registrado con éxito...")
           {
+         //   location.reload();
             limpiar();
+          }
+          else
+          {
+            location.reload();
           }
          
       /*    bootbox.confirm(info.msj, function(result)
@@ -256,7 +261,15 @@ function init(){
           
           if(info.msj == "Producto actualizado con éxito...")
           {
+            tabla.ajax.reload();
             limpiar();
+          //  location.reload();
+          }
+          else
+          {
+            tabla.ajax.reload();
+            limpiar();
+           
           }
 
       /*    bootbox.confirm(info.msj, function(result)

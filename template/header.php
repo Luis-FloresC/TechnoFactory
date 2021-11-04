@@ -56,6 +56,7 @@ function TotalRows($tabla)
     <link rel="stylesheet" href="../Public/css/AdminLTE.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+   
 
 <!-- JavaScript -->
 
@@ -139,7 +140,7 @@ function TotalRows($tabla)
                 <li style="color:#fff; cursor:default;">
                     <span class="all-tittles"><?php print $NombreUsuario; ?></span>
                 </li>
-                <li  class="tooltips-general exit-system-button" data-href="../index.php" data-placement="bottom" title="Salir del sistema">
+                <li  class="tooltips-general exit-system-button" onclick="Close()">
                     <i class="zmdi zmdi-power"></i>
                 </li>
                 <li  class="tooltips-general search-book-button" data-href="" data-placement="bottom" title="Buscar Cliente">
@@ -151,8 +152,29 @@ function TotalRows($tabla)
                 <li class="mobile-menu-button visible-xs" style="float: left !important;">
                     <i class="zmdi zmdi-menu"></i>
                 </li>
+
             </ul>
         </nav>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
         <!--
         <div class="container">
             <div class="page-header">

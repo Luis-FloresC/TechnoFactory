@@ -206,6 +206,33 @@
     var usuarioid = '<?php echo $_SESSION['idUser']; ?>';
     searchForDetalle(usuarioid);
   });
+
+  function Close()
+{
+
+    bootbox.confirm({
+    message: "¿Seguro que desea salir del sistema?",
+    buttons: {
+        confirm: {
+            label: 'Yes',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'No',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+       if(result)
+       {
+
+       $(location).attr("href","../ajax/usuario.php?op=salir");
+       }
+       
+    }
+});
+
+}
 </script>
 
 

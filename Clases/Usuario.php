@@ -19,6 +19,26 @@ Class Usuario
             return ejecutarConsulta($sql);
         }
 
+        public function listar()
+        {
+            $sql="call ListarProductos();";
+            
+            return ejecutarConsulta($sql);
+        }
+
+        public function listarVentas()
+        {
+            $sql="call ListarVentas();";
+            
+            return ejecutarConsulta($sql);
+        }
+
+        public function listarClientes()
+        {
+            $sql="call ListarClientes();";
+            
+            return ejecutarConsulta($sql);
+        }
 
 
 }

@@ -1,8 +1,32 @@
+<?php 
 
+$txtNombre =  (isset($_SESSION['nombre']))?$_SESSION['nombre']:"";
+$txtApellido =  (isset($_SESSION['apellido']))?$_SESSION['apellido']:"";
+$login = (isset($_SESSION['user']))?$_SESSION['user']:"";
+$login = (isset($_SESSION['id']))?$_SESSION['id']:"";
+
+$NombreUsuario = "$txtNombre $txtApellido";
+
+include('../Conexion/connection.php');
+
+$con = conectar();
+
+function TotalRows($tabla)
+{
+   global $con;
+   $query = "select coalesce(count(*),0)'Total' from $tabla;";
+   $count = current($con->query($query)->fetch());
+   return $count;
+}
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Inicio</title>
+<title>Inicio</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="Shortcut Icon" type="image/x-icon" href="../Public/assets/icons/book.ico" />
@@ -20,6 +44,40 @@
     <script src = "https://code.iconify.design/2/2.0.3/iconify.min.js"> </script>
     <script src="../Public/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="../Public/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Public/datatables/jquery.dataTables.min.css">    
+    <link href="../Public/datatables/buttons.dataTables.min.css" rel="stylesheet"/>
+    <link href="../Public/datatables/responsive.dataTables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../Public/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="../Public/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../Public/css/font-awesome.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../Public/css/AdminLTE.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+<!-- 
+    RTL version
+-->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/>
 </head>
 <body>
     <div class="navbar-lateral full-reset">
@@ -37,15 +95,15 @@
             </div>
             <div class="full-reset nav-lateral-list-menu">
                 <ul class="list-unstyled">
-                    <li><a href="#"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
+                    <li><a href="menu.php"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
            
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Clientes <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
                           <!--  <li><a href="admin.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>-->
-                            <li><a href="#"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo Cliente</a></li>
-                            <li><a href="#"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Modificar Cliente</a></li>
-                            <li><a href="#"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i>&nbsp;&nbsp; Eliminar Cliente</a></li>
+                            <li><a href="\Vistas\clientes.php"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo Cliente</a></li>
+                            <li><a href="\Vistas\listaclientes.php"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Modificar Cliente</a></li>
+                            <li><a href="\Vistas\clientes.php"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i>&nbsp;&nbsp; Eliminar Cliente</a></li>
                         </ul>
                     </li>
                
@@ -62,12 +120,16 @@
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-money zmdi-hc-fw"></i>&nbsp;&nbsp; Ventas <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="#"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Realizar Venta</a>
+                                <a href="\Vistas\ventas.php"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Realizar Venta</a>
                             </li>
                             
                            
                             <li>
-                                <a href="#"><i class="zmdi zmdi-view-list zmdi-hc-fw"></i>&nbsp;&nbsp; Lista De Productos<span class="label label-danger pull-right label-mhover"><?php  echo "0"; ?></span></a>
+                                <a href="../Vistas/listaProductos.php"><i class="zmdi zmdi-view-list zmdi-hc-fw"></i>&nbsp;&nbsp; Lista De Productos<span class="label label-danger pull-right label-mhover"><?php  echo TotalRows("Productos"); ?></span></a>
+                            </li>
+
+                            <li>
+                                <a href="../Vistas/listaVentas.php"><i class="zmdi zmdi-view-list zmdi-hc-fw"></i>&nbsp;&nbsp; Lista De Ventas<span class="label label-danger pull-right label-mhover"><?php  echo TotalRows("Ventas"); ?></span></a>
                             </li>
                         </ul>
                     </li>
@@ -93,9 +155,9 @@
                    <img src="../Public/assets/img/user01.png" alt="user-picture" class="img-responsive img-circle center-box">
                 </figure>
                 <li style="color:#fff; cursor:default;">
-                    <span class="all-tittles"><?php echo "Luis Flores"; ?></span>
+                    <span class="all-tittles"><?php print $NombreUsuario; ?></span>
                 </li>
-                <li  class="tooltips-general exit-system-button" data-href="index.html" data-placement="bottom" title="Salir del sistema">
+                <li  class="tooltips-general exit-system-button" data-href="../index.php" data-placement="bottom" title="Salir del sistema">
                     <i class="zmdi zmdi-power"></i>
                 </li>
                 <li  class="tooltips-general search-book-button" data-href="searchbook.html" data-placement="bottom" title="Buscar Cliente">

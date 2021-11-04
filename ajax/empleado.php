@@ -37,16 +37,14 @@ switch ($_GET["op"]){
 			if(empty($idEmpleado))
 			{
 				$rspta=$empleado->registrarEmpleado($idEmpleado,$dni,$nombre,$apellido,$genero,$fecha,$estado);
-			
 				$fetch=$rspta->fetch_object();
-		
-				
-			//echo $rspta;
-		
-			echo json_encode($fetch,JSON_UNESCAPED_UNICODE);
+		    	echo json_encode($fetch,JSON_UNESCAPED_UNICODE);
 			}
 			else
 			{
+				$rspta=$empleado->EditarEmpleado($idEmpleado,$dni,$nombre,$apellido,$genero,$fecha,$estado);
+				$fetch=$rspta->fetch_object();
+				echo json_encode($fetch,JSON_UNESCAPED_UNICODE);
 				///Lo mismo de arriba pero cambia la funcion de Registrar Empleado 
 			}
 
@@ -59,8 +57,8 @@ switch ($_GET["op"]){
 		break;
 
 	case 'eliminar':
-    $rspta=$usuario->eliminar($idusuario);
-    echo $rspta ? "Usuario Eliminado con éxito" : "Lo sentimos,El usuario no se pudo eliminar";
+    $rspta=$empleado->eliminar($idEmpleado);
+    echo $rspta ? "Empleado Eliminado con éxito" : "Lo sentimos,El Empleado no se pudo eliminar";
 
     break;
 

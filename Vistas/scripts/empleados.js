@@ -128,13 +128,13 @@ function listar()
 }
 
 
-function eliminarFila(idusuario)
+function eliminarFila(idEmpleado)
 {
-	bootbox.confirm("¿Está Seguro de eliminar el Usuario?", function(result)
+	bootbox.confirm("¿Está Seguro de eliminar el Empleado?", function(result)
 	{ // confirmamos con una pregunta si queremos eliminar
         if(result)
         {
-            $.post("../ajax/usuario.php?op=eliminar", {idusuario : idusuario}, function(e)
+            $.post("../ajax/empleado.php?op=eliminar", {id : idEmpleado}, function(e)
             {
 	            bootbox.alert(e);
 	            tabla.ajax.reload();

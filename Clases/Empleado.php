@@ -12,12 +12,7 @@ Class Empleado
 
    //Función que va a verificar si existe 
         //la cuenta de usuario
-        public function verificar($login,$clave)
-        {
-            $sql="call Login('$login','$clave')";
-            
-            return ejecutarConsulta($sql);
-        }
+
 
         public function listar()
         {
@@ -28,28 +23,11 @@ Class Empleado
             return ejecutarConsulta($sql);
         }
 
-     
-
-
-        public function listarUser()
-        {
-            $sql="call bd_techno_factory.ListarUsuarios();";
-            
-            return ejecutarConsulta($sql);
-        }
-
-        public function listarVentas()
-        {
-            $sql="call ListarVentas();";
-            
-            return ejecutarConsulta($sql);
-        }
 
  
-        public function eliminar($idusuario)
+        public function eliminar($idEmpleado)
         {
-            $sql ="DELETE FROM Usuarios
-            WHERE idUsuario='$idusuario'";
+            $sql ="UPDATE Empleados SET idEstado = 2 WHERE idEmpleado='$idEmpleado'";
             return ejecutarConsulta($sql);
         }
 
@@ -60,23 +38,19 @@ Class Empleado
             return ejecutarConsultaSimpleFila($sql);
         }
 
-        public function registrarUsuario($user,$contra,$cargo,$email,$idEmpleado)
-        {
-            $sql="call RegistrarUsuarios('$user', '$contra', $cargo, '$email', '$idEmpleado');";
-            
-            return ejecutarConsulta($sql);
-        }
 
-        public function editarUsuario($id,$user,$contra,$cargo,$email,$idEmpleado)
-        {
-            $sql="call EditarUsuario('$id','$user', '$contra', $cargo, '$email', '$idEmpleado');";
-            
-            return ejecutarConsulta($sql);
-        }
+
 
         public function registrarEmpleado($id,$dni,$nombre,$apellido,$genero,$fecha,$estado)
         {
             $sql="call bd_techno_factory.AccionesEmpleados('$id', 'G', '$dni', '$nombre', '$apellido', '$genero', '$fecha', '$estado');";
+            
+            return ejecutarConsulta($sql);
+        }
+
+        public function EditarEmpleado($id,$dni,$nombre,$apellido,$genero,$fecha,$estado)
+        {
+            $sql="call bd_techno_factory.AccionesEmpleados('$id', 'M', '$dni', '$nombre', '$apellido', '$genero', '$fecha', '$estado');";
             
             return ejecutarConsulta($sql);
         }

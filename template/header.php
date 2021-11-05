@@ -29,6 +29,7 @@ function TotalRows($tabla)
 <title>Inicio</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="Shortcut Icon" type="image/x-icon" href="../Public/assets/icons/book.ico" />
     <script src="../Public/js/sweet-alert.min.js"></script>
     <link rel="stylesheet" href="../Public/css/sweet-alert.css">

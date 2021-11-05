@@ -17,7 +17,7 @@ $cargo=isset($_POST["cargo"])? limpiarCadena($_POST["cargo"]):"";
 $email=isset($_POST["correo"])? limpiarCadena($_POST["correo"]):"";
 $login=isset($_POST["contra"])? limpiarCadena($_POST["contra"]):"";
 $clave=isset($_POST["user"])? limpiarCadena($_POST["user"]):"";
-
+//opciones
 switch ($_GET["op"]){
 	case 'guardaryeditar':
 		if (empty($idusuario)){

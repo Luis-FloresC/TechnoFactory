@@ -8,9 +8,9 @@ function conectar()
     ///Base de Datos mysql
     $bd = "bd_techno_factory";
     //User
-    $user = "luis";
+    $user = "root";
     //Contraseña
-    $contra = "luis1234";
+    $contra = "";
 
     try {
         $conexion = new PDO("mysql:host=$host;dbname=$bd",$user,$contra);

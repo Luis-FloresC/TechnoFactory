@@ -5,7 +5,7 @@ require_once "../Clases/Usuario.php";
 
 $usuario=new Usuario();
 
-$idusuario=isset($_POST["id"])? limpiarCadena($_POST["id"]):"";
+$idusuario=isset($_POST["idusuario"])? limpiarCadena($_POST["idusuario"]):"";
 //$numero_trabajador=isset($_POST["numero_trabajador"])? limpiarCadena($_POST["numero_trabajador"]):"";
 //$dni=isset($_POST["dni"])? limpiarCadena($_POST["dni"]):"";
 $nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
@@ -17,7 +17,7 @@ $cargo=isset($_POST["cargo"])? limpiarCadena($_POST["cargo"]):"";
 $email=isset($_POST["correo"])? limpiarCadena($_POST["correo"]):"";
 $login=isset($_POST["contra"])? limpiarCadena($_POST["contra"]):"";
 $clave=isset($_POST["user"])? limpiarCadena($_POST["user"]):"";
-
+//opciones
 switch ($_GET["op"]){
 	case 'guardaryeditar':
 		if (empty($idusuario)){
@@ -35,30 +35,64 @@ switch ($_GET["op"]){
  		//Codificar el resultado utilizando json
  		echo json_encode($rspta);
 	break;
+//la opcion que mandemos en el archivo scripts
+	case 'guardar':
+		try {
+	
+			//Asgnacion de variables
+			$email=isset($_POST["correo"])? limpiarCadena($_POST["correo"]):"";
+			$contra=isset($_POST["contra"])? limpiarCadena($_POST["contra"]):"";
+			$user=isset($_POST["user"])? limpiarCadena($_POST["user"]):"";
+			$cargo=isset($_POST["cargo"])? limpiarCadena($_POST["cargo"]):"";
+            $idusuario=isset($_POST["id"])? limpiarCadena($_POST["id"]):"";
+			$id = isset($_POST["idUser"])? limpiarCadena($_POST["idUser"]):"";
+
+			if(empty($id))
+			{
+				$rspta=$usuario->registrarUsuario($user,$contra,$cargo,$email,$idusuario);
+			
+				$fetch=$rspta->fetch_object();
+		
+				//echo $rspta;
+			   echo json_encode($fetch,JSON_UNESCAPED_UNICODE);
+			}
+			else
+			{
+				$rspta=$usuario->editarUsuario($id,$user,$contra,$cargo,$email,$idusuario);
+			
+				$fetch=$rspta->fetch_object();
+		
+				//echo $rspta;
+			   echo json_encode($fetch,JSON_UNESCAPED_UNICODE);
+			}
+
+			
+			
+		
+		} catch (Exception $ex) {
+			echo $ex->getMessage();
+		 }
+		break;
 
 	case 'eliminar':
     $rspta=$usuario->eliminar($idusuario);
-    echo $rspta ? "Usuario Eliminado" : "Usuario no se puede eliminar";
+    echo $rspta ? "Usuario Eliminado con éxito" : "Lo sentimos,El usuario no se pudo eliminar";
 
     break;
 
+	
 	case 'listar':
-		$rspta=$usuario->listar();
+		$rspta=$usuario->listarUser();
  		//Vamos a declarar un array
  		$data= Array();
  		while ($reg=$rspta->fetch_object()){
  			$data[]=array(
- 				"0"=>$reg->idusuario,
-        		"1"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"></i></button> <button class="btn btn-danger" onclick="eliminarFila('.$reg->idusuario.')"><i class="fa fa-trash"></button>',
- 				"2"=>$reg->numero_trabajador,
- 				"3"=>$reg->dni,
- 				"4"=>$reg->nombre,
- 				"5"=>$reg->profesion,
- 				"6"=>$reg->cargo,
- 				"7"=>$reg->direccion,
- 				"8"=>$reg->telefono,
- 				"9"=>$reg->email,
- 				"10"=>$reg->login
+ 				"0"=>$reg->num,
+        		"1"=>$reg->nombre,
+ 				"2"=>$reg->Email,
+ 				"3"=>$reg->user,
+ 				"4"=>$reg->cargo,
+ 				"5"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->idUsuario.')"><i class="fa fa-pencil"></i></button> <button class="btn btn-danger" onclick="eliminarFila('.$reg->idUsuario.')"><i class="fa fa-trash"></button>'
  				);
  		}
  		$results = array(

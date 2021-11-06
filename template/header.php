@@ -28,6 +28,7 @@ function TotalRows($tabla)
 <head>
 <title>Inicio</title>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="Shortcut Icon" type="image/x-icon" href="../Public/assets/icons/book.ico" />
@@ -42,6 +43,9 @@ function TotalRows($tabla)
     <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="../Public/js/modernizr.js"></script>
     <script src="../Public/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Public/datatables/jquery.dataTables.min.css">    
+    <link href="../Public/datatables/buttons.dataTables.min.css" rel="stylesheet"/>
+    <link href="../Public/datatables/responsive.dataTables.min.css" rel="stylesheet"/>
     <script src = "https://code.iconify.design/2/2.0.3/iconify.min.js"> </script>
     <script src="../Public/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="../Public/js/main.js"></script>
@@ -112,9 +116,9 @@ function TotalRows($tabla)
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Empleados <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
                           <!--  <li><a href="admin.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>-->
-                            <li ><a href="#"><i class="zmdi zmdi-save zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo Empleado</a></li>
-                            <li><a href="#"><i class="zmdi zmdi-edit zmdi-hc-fw"></i>&nbsp;&nbsp; Modificar Empleado</a></li>
-                            <li><a href="#"><i class="zmdi zmdi-delete zmdi-hc-fw"></i>&nbsp;&nbsp; Eliminar Empleado</a></li>
+                            <li ><a href="empleado.php"><i class="zmdi zmdi-save zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo Empleado</a></li>
+                            <li><a  href="emplea2.php"><i class="zmdi zmdi-edit zmdi-hc-fw"></i>&nbsp;&nbsp; Modificar Empleado</a></li>
+                            <li><a  href="empleado.php"><i class="zmdi zmdi-delete zmdi-hc-fw"></i>&nbsp;&nbsp; Eliminar Empleado</a></li>
                         </ul>
                     </li>
                     <li>

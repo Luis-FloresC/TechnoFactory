@@ -4,7 +4,7 @@ $("#frmAcceso").on('submit',function(e)
     loginf=$("#loginf").val();
     clavef=$("#clavef").val();
     var resul =""
-    $.post("../ajax/usuario.php?op=verificar",
+    $.post("../ajax/Usuario.php?op=verificar",
         {"loginf":loginf,"clavef":clavef},
         function(data)
     {

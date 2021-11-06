@@ -150,6 +150,7 @@
     <script src="../Public/js/app.min.js"></script>
 
     <!-- DATATABLES -->
+    <script src="../Public/js/bootbox.min.js"></script> 
     <script src="../Public/datatables/jquery.dataTables.min.js"></script>    
     <script src="../Public/datatables/dataTables.buttons.min.js"></script>
     <script src="../Public/datatables/buttons.html5.min.js"></script>

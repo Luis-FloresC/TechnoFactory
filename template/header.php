@@ -21,7 +21,6 @@ function TotalRows($tabla)
 
 
 
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -32,8 +31,9 @@ function TotalRows($tabla)
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="Shortcut Icon" type="image/x-icon" href="../Public/assets/icons/book.ico" />
-    <script src="../Public/js/sweet-alert.min.js"></script>
-    <link rel="stylesheet" href="../Public/css/sweet-alert.css">
+   <script src="../Public/js/sweet-alert.min.js"></script>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="../Public/css/sweet-alert.css"> 
     <link rel="stylesheet" href="../Public/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="../Public/css/normalize.css">
     <link rel="stylesheet" href="../Public/css/bootstrap.min.css">
@@ -145,6 +145,7 @@ function TotalRows($tabla)
                             <li ><a href="#"><i class="zmdi zmdi-view-module zmdi-hc-fw"></i>&nbsp;&nbsp; Modelos</a></li>
                             <li><a href="#"><i class="zmdi zmdi-adb zmdi-hc-fw"></i>&nbsp;&nbsp; Marcas</a></li>
                             <li><a href="#"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Categorias</a></li>
+                            <li><a href="Usuario.php"><i class="zmdi zmdi-account-circle zmdi-hc-fw"></i>&nbsp;&nbsp; Usuarios</a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="zmdi zmdi-laptop-mac zmdi-hc-fw"></i>&nbsp;&nbsp; Productos</a></li>
@@ -162,10 +163,10 @@ function TotalRows($tabla)
                 <li style="color:#fff; cursor:default;">
                     <span class="all-tittles"><?php print $NombreUsuario; ?></span>
                 </li>
-                <li  class="tooltips-general exit-system-button" data-href="../index.php" data-placement="bottom" title="Salir del sistema">
+                <li  class="tooltips-general exit-system-button" onclick="Close()">
                     <i class="zmdi zmdi-power"></i>
                 </li>
-                <li  class="tooltips-general search-book-button" data-href="searchbook.html" data-placement="bottom" title="Buscar Cliente">
+                <li  class="tooltips-general search-book-button" data-href="" data-placement="bottom" title="Buscar Cliente">
                     <i class="zmdi zmdi-search"></i>
                 </li>
                 <li  class="tooltips-general btn-help" data-placement="bottom" title="Ayuda">
@@ -174,8 +175,29 @@ function TotalRows($tabla)
                 <li class="mobile-menu-button visible-xs" style="float: left !important;">
                     <i class="zmdi zmdi-menu"></i>
                 </li>
+
             </ul>
         </nav>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
         <!--
         <div class="container">
             <div class="page-header">

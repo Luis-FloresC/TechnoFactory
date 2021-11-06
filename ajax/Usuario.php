@@ -19,16 +19,7 @@ $login=isset($_POST["contra"])? limpiarCadena($_POST["contra"]):"";
 $clave=isset($_POST["user"])? limpiarCadena($_POST["user"]):"";
 //opciones
 switch ($_GET["op"]){
-	case 'guardaryeditar':
-		if (empty($idusuario)){
-			$rspta=$usuario->insertar($numero_trabajador,$dni,$nombre,$profesion,$cargo,$direccion,$telefono,$email,$login,$clave);
-			echo $rspta ? "Usuario registrado" : "Usuario no se pudo registrar";
-		}
-		else {
-			$rspta=$usuario->editar($idusuario,$numero_trabajador,$dni,$nombre,$profesion,$cargo,$direccion,$telefono,$email,$login,$clave);
-			echo $rspta ? "Usuario actualizado" : "Usuario no se pudo actualizar";
-		}
-	break;
+	
 
 	case 'mostrar':
 		$rspta=$usuario->mostrar($idusuario);

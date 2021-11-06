@@ -19,6 +19,13 @@ Class Usuario
             return ejecutarConsulta($sql);
         }
 
+        public function listarUser()
+        {
+            $sql="call bd_techno_factory.ListarUsuarios();";
+            
+            return ejecutarConsulta($sql);
+        }
+        
         public function listar()
         {
             $sql="call ListarProductos();";
@@ -47,6 +54,32 @@ Class Usuario
             return ejecutarConsulta($sql);
         }
 
+        
+        public function eliminar($idusuario)
+        {
+            $sql ="DELETE FROM Usuarios
+            WHERE idUsuario='$idusuario'";
+            return ejecutarConsulta($sql);
+        }
+
+        public function mostrar($idusuario)
+        {
+            $sql="SELECT * FROM Usuarios WHERE idUsuario='$idusuario'";
+            return ejecutarConsultaSimpleFila($sql);
+        }
        
+        public function registrarUsuario($user,$contra,$cargo,$email,$idEmpleado)
+        {
+            $sql="call RegistrarUsuarios('$user', '$contra', $cargo, '$email', '$idEmpleado');";
+            
+            return ejecutarConsulta($sql);
+        }
+
+        public function editarUsuario($id,$user,$contra,$cargo,$email,$idEmpleado)
+        {
+            $sql="call EditarUsuario('$id','$user', '$contra', $cargo, '$email', '$idEmpleado');";
+            
+            return ejecutarConsulta($sql);
+        }
 }
 ?>    

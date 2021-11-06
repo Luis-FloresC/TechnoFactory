@@ -28,7 +28,7 @@ require_once '../template/header.php';
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <h4 class="text-center">Datos del Cliente</h4>
-                                <a href="#" class="btn btn-primary btn_new_cliente">Nuevo Cliente  <i class="zmdi zmdi-face"></i> </a>
+                                <a href="./clientes.php" class="btn btn-primary">Nuevo Cliente  <i class="zmdi zmdi-face"></i> </a>
                             </div>
                             <div class="card">
                                 <div class="card-body">
@@ -61,14 +61,12 @@ require_once '../template/header.php';
                                                 </div>
 
                                             </div>
-                                            <div id="div_registro_cliente" style="display: none;">
-                                                <button type="submit" class="btn btn-primary">Guardar</button>
-                                            </div>
+                                          
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                            <h4 class="text-center">Datos Cliente</h4>
+                            <h4 class="text-center">Detalle de las Ventas</h4>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">

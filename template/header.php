@@ -20,6 +20,18 @@ function TotalRows($tabla)
 }
 
 
+$AllModelo = $con->prepare("SELECT idModelo AS id , descripcionModelo as nombre FROM bd_techno_factory.Modelos;");
+$AllModelo->execute();
+$listaModelo = $AllModelo->fetchAll(PDO::FETCH_ASSOC);
+
+
+$AllEstado = $con->prepare("SELECT idEstado as id,estado as nombre FROM bd_techno_factory.Estados;");
+$AllEstado->execute();
+$listaEstado = $AllEstado->fetchAll(PDO::FETCH_ASSOC);
+
+$AllCategoria = $con->prepare("SELECT idCategoria as id,descripcionCategoria as nombre FROM bd_techno_factory.Categorias;");
+$AllCategoria->execute();
+$listaCategoria = $AllCategoria->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -148,7 +160,17 @@ function TotalRows($tabla)
                             <li><a href="Usuario.php"><i class="zmdi zmdi-account-circle zmdi-hc-fw"></i>&nbsp;&nbsp; Usuarios</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="zmdi zmdi-laptop-mac zmdi-hc-fw"></i>&nbsp;&nbsp; Productos</a></li>
+                    <li>
+                        <!--<a href="../Vistas/producto.php"><i class="zmdi zmdi-laptop-mac zmdi-hc-fw"></i>&nbsp;&nbsp; Productos</a>-->
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Productos <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <ul class="list-unstyled">
+                          <!--  <li><a href="admin.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>-->
+                            <li ><a href="../Vistas/producto.php"><i class="zmdi zmdi-save zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo Producto</a></li>
+                            <li><a href="#"><i class="zmdi zmdi-edit zmdi-hc-fw"></i>&nbsp;&nbsp; Modificar Producto</a></li>
+                            <li><a href="#"><i class="zmdi zmdi-delete zmdi-hc-fw"></i>&nbsp;&nbsp; Eliminar Producto</a></li>
+                        </ul>
+                
+                    </li>
                  
                 </ul>
             </div>

@@ -143,14 +143,21 @@
             <div class="footer-copyright full-reset all-tittles">© <?php $Year = date("Y"); echo $Year; ?> Grupo 6 - Portales web 2</div>
         </footer>
     </div>
+<<<<<<< HEAD
   <script src="../Public/js/jquery-3.1.1.min.js"></script> 
+=======
+    <script src="../Public/js/jquery-3.1.1.min.js"></script> 
+>>>>>>> ModuloProducto
     <!-- Bootstrap 3.3.5 -->
     <script src="../Public/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../Public/js/app.min.js"></script>
 
     <!-- DATATABLES -->
+<<<<<<< HEAD
     <script src="../Public/js/bootbox.min.js"></script> 
+=======
+>>>>>>> ModuloProducto
     <script src="../Public/datatables/jquery.dataTables.min.js"></script>    
     <script src="../Public/datatables/dataTables.buttons.min.js"></script>
     <script src="../Public/datatables/buttons.html5.min.js"></script>
@@ -165,11 +172,17 @@
 <!--
 <script src="../Public/DiseñoVentas/vendor/jquery/jquery.min.js"></script>
 <script src="../Public/DiseñoVentas/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<<<<<<< HEAD
 
  Core plugin JavaScript
 <script src="../Public/DiseñoVentas/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="../Public/DiseñoVentas/js/all.min.js"></script>
 
+=======
+ Core plugin JavaScript
+<script src="../Public/DiseñoVentas/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="../Public/DiseñoVentas/js/all.min.js"></script>
+>>>>>>> ModuloProducto
  Custom scripts for all pages
 <script src="../Public/DiseñoVentas/js/sb-admin-2.min.js"></script>
 <script src="../Public/DiseñoVentas/js/jquery.dataTables.min.js"></script>

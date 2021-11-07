@@ -155,7 +155,7 @@ $listaCategoria = $AllCategoria->fetchAll(PDO::FETCH_ASSOC);
                         <ul class="list-unstyled">
                           <!--  <li><a href="admin.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>-->
                             <li ><a href="#"><i class="zmdi zmdi-view-module zmdi-hc-fw"></i>&nbsp;&nbsp; Modelos</a></li>
-                            <li><a href="#"><i class="zmdi zmdi-adb zmdi-hc-fw"></i>&nbsp;&nbsp; Marcas</a></li>
+                            <li><a href="marcas.php"><i class="zmdi zmdi-adb zmdi-hc-fw"></i>&nbsp;&nbsp; Marcas</a></li>
                             <li><a href="categorias.php"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Categorias</a></li>
                             <li><a href="Usuario.php"><i class="zmdi zmdi-account-circle zmdi-hc-fw"></i>&nbsp;&nbsp; Usuarios</a></li>
                         </ul>

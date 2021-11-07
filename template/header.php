@@ -117,43 +117,22 @@ $listaMarcas = $AllMarcas->fetchAll(PDO::FETCH_ASSOC);
             <div class="full-reset nav-lateral-list-menu">
                 <ul class="list-unstyled">
                     <li><a href="menu.php"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
-           
-                    <li>
-                        <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Clientes <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
-                        <ul class="list-unstyled">
-                          <!--  <li><a href="admin.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>-->
-                            <li><a href="\Vistas\clientes.php"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo Cliente</a></li>
-                            <li><a href="\Vistas\listaclientes.php"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Modificar Cliente</a></li>
-                            <li><a href="\Vistas\clientes.php"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i>&nbsp;&nbsp; Eliminar Cliente</a></li>
-                        </ul>
-                    </li>
-               
-                    <li>
-                        <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Empleados <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
-                        <ul class="list-unstyled">
-                          <!--  <li><a href="admin.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>-->
-                            <li ><a href="empleado.php"><i class="zmdi zmdi-save zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo Empleado</a></li>
-                            <li><a  href="emplea2.php"><i class="zmdi zmdi-edit zmdi-hc-fw"></i>&nbsp;&nbsp; Modificar Empleado</a></li>
-                            <li><a  href="empleado.php"><i class="zmdi zmdi-delete zmdi-hc-fw"></i>&nbsp;&nbsp; Eliminar Empleado</a></li>
-                        </ul>
-                    </li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-money zmdi-hc-fw"></i>&nbsp;&nbsp; Ventas <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
                             <li>
                                 <a href="\Vistas\ventas.php"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Realizar Venta</a>
                             </li>
-                            
-                           
                             <li>
                                 <a href="../Vistas/listaProductos.php"><i class="zmdi zmdi-view-list zmdi-hc-fw"></i>&nbsp;&nbsp; Lista De Productos<span class="label label-danger pull-right label-mhover"><?php  echo TotalRows("Productos"); ?></span></a>
                             </li>
-
                             <li>
                                 <a href="../Vistas/listaVentas.php"><i class="zmdi zmdi-view-list zmdi-hc-fw"></i>&nbsp;&nbsp; Lista De Ventas<span class="label label-danger pull-right label-mhover"><?php  echo TotalRows("Ventas"); ?></span></a>
                             </li>
                         </ul>
                     </li>
+                    <li ><a href="../Vistas/producto.php"><i class="zmdi zmdi-desktop-mac zmdi-hc-fw"></i>&nbsp;&nbsp; Productos</a></li>
+
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-folder-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Categorias y más <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
@@ -164,17 +143,22 @@ $listaMarcas = $AllMarcas->fetchAll(PDO::FETCH_ASSOC);
                             <li><a href="Usuario.php"><i class="zmdi zmdi-account-circle zmdi-hc-fw"></i>&nbsp;&nbsp; Usuarios</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <!--<a href="../Vistas/producto.php"><i class="zmdi zmdi-laptop-mac zmdi-hc-fw"></i>&nbsp;&nbsp; Productos</a>-->
-                        <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Productos <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
-                        <ul class="list-unstyled">
+                 
                           <!--  <li><a href="admin.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>-->
-                            <li ><a href="../Vistas/producto.php"><i class="zmdi zmdi-save zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo Producto</a></li>
-                            <li><a href="#"><i class="zmdi zmdi-edit zmdi-hc-fw"></i>&nbsp;&nbsp; Modificar Producto</a></li>
-                            <li><a href="#"><i class="zmdi zmdi-delete zmdi-hc-fw"></i>&nbsp;&nbsp; Eliminar Producto</a></li>
-                        </ul>
+                            <li><a href="\Vistas\clientes.php"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Clientes</a></li>
+
+               
+              
+
+                          <!--  <li><a href="admin.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>-->
+                            <li ><a href="empleado.php"><i class="zmdi zmdi-account zmdi-hc-fw"></i>&nbsp;&nbsp;Empleados</a></li>
+   
+                  
+
                 
-                    </li>
+                  
+                          <!--  <li><a href="admin.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>-->
+
                  
                 </ul>
             </div>
@@ -192,12 +176,12 @@ $listaMarcas = $AllMarcas->fetchAll(PDO::FETCH_ASSOC);
                 <li  class="tooltips-general exit-system-button" onclick="Close()">
                     <i class="zmdi zmdi-power"></i>
                 </li>
-                <li  class="tooltips-general search-book-button" data-href="" data-placement="bottom" title="Buscar Cliente">
+               <!-- <li  class="tooltips-general search-book-button" data-href="" data-placement="bottom" title="Buscar Cliente">
                     <i class="zmdi zmdi-search"></i>
                 </li>
                 <li  class="tooltips-general btn-help" data-placement="bottom" title="Ayuda">
                     <i class="zmdi zmdi-help-outline zmdi-hc-fw"></i>
-                </li>
+                </li> -->
                 <li class="mobile-menu-button visible-xs" style="float: left !important;">
                     <i class="zmdi zmdi-menu"></i>
                 </li>

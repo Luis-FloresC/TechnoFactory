@@ -16,7 +16,7 @@ require_once '../template/header.php';
 
 <div class="container">
     <div class="page-header">
-        <h1 class="all-tittles">Sistema de Ventas <small>Ingreso de Cliente</small></h1>        
+        <h1 class="all-tittles">Sistema de Ventas <small>Clientes</small></h1>        
     </div>
 </div>
 
